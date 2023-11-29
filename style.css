@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'kanit';
+    src: url('./Kanit/Kanit-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'kanit';
+} 
+
+.contrain {
+    width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    background-color: rgb(195, 195, 195);
+}
+
+.header ul li{
+    float: left;
+    padding: 10px;
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    padding: 20px;
+}
+
+
