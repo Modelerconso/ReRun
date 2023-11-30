@@ -30,7 +30,7 @@
                         <label name="firstname">ชื่อจริง</label>
                     </div>
                     <div>
-                        <input type="text" name="firstname">
+                        <input type="text" name="firstname" >
                     </div>
                 </div>
                 <div class="lastname">
@@ -65,7 +65,7 @@
                         <label>วันเกิด</label>
                     </div>
                    <div>    
-                        <input type="date" name="age">
+                        <input type="date" name="age" >
                    </div>
                 </div>
                 <div class="number-card-person">
@@ -73,7 +73,7 @@
                         <label>เลขบัตรประจำตัวประชาชน</label>
                     </div>
                     <div>
-                        <input type="text" name="number-card-person">
+                        <input type="text" name="number-card-person" >
                     </div>
                 </div>
                 <div class="phone">
@@ -81,7 +81,7 @@
                         <label>เบอร์โทร</label>
                     </div>
                     <div>
-                        <input type="text" name="phone">
+                        <input type="text" name="phone" >
                     </div>
                 </div>
                 <div class="email">
@@ -89,20 +89,20 @@
                         <label>อีเมล</label>
                     </div>
                     <div>
-                        <input type="email" name="email">
+                        <input type="email" name="email" >
                     </div>
                 </div>
                 <div class="shirt">
                     <div>
                         <label>ชนิดของเสื้อ</label>
                     </div>
-                    <div class="shirt-type">
+                    <div class="shirt-types">
                         <div>
-                            <input type="radio" name="shirt" value="แขนกุด">
+                            <input type="radio" name="shirt-type" value="แขนกุด" >
                             <label>แขนกุด</label>
                         </div>
                         <div>
-                            <input type="radio" name="shirt" value="แขนสั้น">
+                            <input type="radio" name="shirt-type" value="แขนสั้น" >
                             <label>แขนสั้น</label>
                         </div>
                     </div>
@@ -111,17 +111,17 @@
                     <div>
                         <label>ขนาดของเสื้อ</label>
                     </div>
-                    <div class="shirt-size-value">
+                    <div class="shirt-size-values">
                         <div>
-                            <input type="radio" name="shirt-size" value="S">
+                            <input type="radio" name="shirt-size" value="S" >
                             <label>S</label>
                         </div>
                         <div>
-                            <input type="radio" name="shirt-size" value="M">
+                            <input type="radio" name="shirt-size" value="M" >
                             <label>M</label>
                         </div>
                         <div>
-                            <input type="radio" name="shirt-size" value="L">
+                            <input type="radio" name="shirt-size" value="L" >
                             <label>L</label>
                         </div>
                     </div>
@@ -132,19 +132,19 @@
                     </div>
                     <div class="type-run-option">
                         <div>
-                            <input type="radio" name="type-run" value="funrun">
+                            <input type="radio" name="type-run" value="funrun" >
                             <label>Funrun 5 km</label>
                         </div>
                         <div>
-                            <input type="radio" name="type-run" value="minimarathon">
+                            <input type="radio" name="type-run" value="minimarathon" >
                             <label>Mini marathon 10 km</label>
                         </div>
                         <div>
-                            <input type="radio" name="type-run" value="halfmarathon">
+                            <input type="radio" name="type-run" value="halfmarathon" >
                             <label>Half marathon 21 km</label>
                         </div>
                         <div>
-                            <input type="radio" name="type-run" value="marathon">
+                            <input type="radio" name="type-run" value="marathon" >
                             <label>Marathon 42 km</label>
                         </div>
                     </div>
@@ -152,10 +152,10 @@
             </div>
             <div class="box-button">
                 <div class="cancel">
-                    <button name="cancel">ยกเลิก</button>
+                    <button id="cancel-register" onclick="cancelData()" name="cancel">ยกเลิก</button>
                 </div>
                 <div class="submit">
-                    <button onclick="submitData()" name="submit">ส่งข้อมูล</button>
+                    <button id="submit-register" onclick="submitData()" name="submit">ส่งข้อมูล</button>
                 </div>
             </div>
         </div>
