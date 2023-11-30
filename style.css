@@ -8,7 +8,7 @@
     padding: 0;
 }
 
-body{
+body {
     font-family: 'kanit';
 } 
 
@@ -24,11 +24,17 @@ body{
     background-color: rgb(195, 195, 195);
 }
 
-.header ul li{
-    float: left;
+.menu {
+    display: flex;
+    float: right;
+}
+
+.menu a {
+    text-decoration: none;
     padding: 10px;
     list-style-type: none;
-    padding-left: 15px;
+    margin-right: 5px;
+    color: black;
 }
 
 h2 {
@@ -37,4 +43,47 @@ h2 {
     padding: 20px;
 }
 
+.form {
+    display: grid;
+    grid-template-columns: repeat(2,512px);
+}
 
+.form div {
+    margin-bottom: 5px;
+}
+
+.form label {
+    padding-right: 20px;
+}
+
+.gender-value {
+    display: flex;
+}
+
+.shirt-type {
+    display: flex;
+}
+
+.shirt-size-value {
+    display: flex;
+}
+
+.type-run-option {
+    display: grid;
+    grid-template-columns: repeat(2,256px);
+}
+
+.box-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+button {
+    width: 256px;
+    height: 30px;
+}
+
+.submit {
+    margin-left: 10px;
+}

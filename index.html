@@ -11,37 +11,41 @@
     <div class="header">
         <div class="contrain">
             <div class="menu">
-                <ul>
-                    <li>หน้าหลัก</li>
-                    <li>ลงทะเบียน</li>
-                    <li>สถานะ</li>
-                    <li>เกี่ยวกับ</li>
-                    <li>โปรไฟล์</li>
-                </ul>
+                <a href="#">หน้าหลัก</a>
+                <a href="#">สถานะ</a>
+                <a href="#">โปรไฟล์</a>
             </div>
         </div>
     </div>
     <!-- Section page -->
     <div class="section">
         <div class="contrain">
+            <div>
+                <h2>สมัครวิ่ง</h2>
+            </div>
             <!-- form register run -->
             <div class="form">
-                <form>
+                <div class="firstname"> 
                     <div>
-                        <h2>สมัครวิ่ง</h2>
-                    </div>
-                    <div class="firstname"> 
                         <label name="firstname">ชื่อจริง</label>
+                    </div>
+                    <div>
                         <input type="text" name="firstname">
                     </div>
-                    <div class="lastname">
+                </div>
+                <div class="lastname">
+                    <div>   
                         <label name="lastname">นามสกุล</label>
+                    </div>
+                    <div>
                         <input type="text" name="lastname">
                     </div>
-                    <div class="gender">
-                        <div>
-                            <label>เพศ</label>
-                        </div>
+                </div>
+                <div class="gender">
+                    <div>
+                        <label>เพศ</label>
+                    </div>
+                    <div class="gender-value">
                         <div>
                             <input type="radio" name="gender" value="ชาย">
                             <label>ชาย</label>
@@ -55,24 +59,44 @@
                             <label>ไม่ระบุ</label>
                         </div>
                     </div>
-                    <div class="age">
+                </div>
+                <div class="age">
+                    <div>
                         <label>วันเกิด</label>
+                    </div>
+                   <div>    
                         <input type="date" name="age">
-                    </div>
-                    <div class="number-card-person">
+                   </div>
+                </div>
+                <div class="number-card-person">
+                    <div>
                         <label>เลขบัตรประจำตัวประชาชน</label>
-                        <input type="number" name="number-card-person">
                     </div>
-                    <div class="phone">
+                    <div>
+                        <input type="text" name="number-card-person">
+                    </div>
+                </div>
+                <div class="phone">
+                    <div>
                         <label>เบอร์โทร</label>
+                    </div>
+                    <div>
                         <input type="text" name="phone">
                     </div>
-                    <div class="email">
+                </div>
+                <div class="email">
+                    <div>   
                         <label>อีเมล</label>
+                    </div>
+                    <div>
                         <input type="email" name="email">
                     </div>
-                    <div class="shirt">
+                </div>
+                <div class="shirt">
+                    <div>
                         <label>ชนิดของเสื้อ</label>
+                    </div>
+                    <div class="shirt-type">
                         <div>
                             <input type="radio" name="shirt" value="แขนกุด">
                             <label>แขนกุด</label>
@@ -82,10 +106,12 @@
                             <label>แขนสั้น</label>
                         </div>
                     </div>
-                    <div class="shirt-size">
-                        <div>
-                            <label>ขนาดของเสื้อ</label>
-                        </div>
+                </div>
+                <div class="shirt-size">
+                    <div>
+                        <label>ขนาดของเสื้อ</label>
+                    </div>
+                    <div class="shirt-size-value">
                         <div>
                             <input type="radio" name="shirt-size" value="S">
                             <label>S</label>
@@ -99,12 +125,14 @@
                             <label>L</label>
                         </div>
                     </div>
-                    <div class="type-run">
+                </div>
+                <div class="type-run">
+                    <div>
+                        <label>ประเภทของการแข่งขัน</label>
+                    </div>
+                    <div class="type-run-option">
                         <div>
-                            <label>ประเภคของการแข่งขัน</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="type-run" value="Funrun">
+                            <input type="radio" name="type-run" value="funrun">
                             <label>Funrun 5 km</label>
                         </div>
                         <div>
@@ -120,8 +148,15 @@
                             <label>Marathon 42 km</label>
                         </div>
                     </div>
-                    <input type="submit" name="submit">
-                </form>
+                </div>
+            </div>
+            <div class="box-button">
+                <div class="cancel">
+                    <button name="cancel">ยกเลิก</button>
+                </div>
+                <div class="submit">
+                    <button onclick="submitData()" name="submit">ส่งข้อมูล</button>
+                </div>
             </div>
         </div>
     </div>
@@ -133,5 +168,6 @@
             </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 </html>
