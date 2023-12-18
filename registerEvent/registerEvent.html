@@ -20,8 +20,8 @@
     <!-- Section page -->
     <div class="section">
         <div class="contrain">
-            <div>
-                <h2>สมัครวิ่ง</h2>
+            <div class="header-section">
+                <h2>ข้อมูลของการสมัคร</h2>
             </div>
             <!-- form register run -->
             <div class="form">
@@ -45,19 +45,8 @@
                     <div>
                         <label>เพศ</label>
                     </div>
-                    <div class="gender-value">
-                        <div>
-                            <input type="radio" name="gender" value="ชาย">
-                            <label>ชาย</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="gender" value="หญิง">
-                            <label>หญิง</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="gender" value="ไม่ระบุ">
-                            <label>ไม่ระบุ</label>
-                        </div>
+                    <div>
+                        <input type="text" name="gender">
                     </div>
                 </div>
                 <div class="age">
@@ -96,58 +85,27 @@
                     <div>
                         <label>ชนิดของเสื้อ</label>
                     </div>
-                    <div class="shirt-types">
-                        <div>
-                            <input type="radio" name="shirt-type" value="แขนกุด" >
-                            <label>แขนกุด</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="shirt-type" value="แขนสั้น" >
-                            <label>แขนสั้น</label>
-                        </div>
-                    </div>
+                    <select class="shirt-types">
+                        <option name="shirt-type" value="แขนกุด">แขนกุด</option>
+                    </select>
                 </div>
                 <div class="shirt-size">
                     <div>
                         <label>ขนาดของเสื้อ</label>
                     </div>
-                    <div class="shirt-size-values">
-                        <div>
-                            <input type="radio" name="shirt-size" value="S" >
-                            <label>S</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="shirt-size" value="M" >
-                            <label>M</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="shirt-size" value="L" >
-                            <label>L</label>
-                        </div>
-                    </div>
+                    <select class="shirt-size-values">
+                        <option name="shirt-size" value="S">S</option>
+                        <option name="shirt-size" value="M">M</option>
+                        <option name="shirt-size" value="L">L</option>
+                    </select>
                 </div>
                 <div class="type-run">
                     <div>
                         <label>ประเภทของการแข่งขัน</label>
                     </div>
-                    <div class="type-run-option">
-                        <div>
-                            <input type="radio" name="type-run" value="funrun" >
-                            <label>Funrun 5 km</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="type-run" value="minimarathon" >
-                            <label>Mini marathon 10 km</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="type-run" value="halfmarathon" >
-                            <label>Half marathon 21 km</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="type-run" value="marathon" >
-                            <label>Marathon 42 km</label>
-                        </div>
-                    </div>
+                    <select class="type-run-option">
+                        <option value="funrun">Funrun</option>
+                    </select>
                 </div>
             </div>
             <div class="box-button">

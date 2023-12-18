@@ -27,7 +27,6 @@ body {
 
 .menu {
     display: flex;
-    float: right;
 }
 
 .menu a {
@@ -44,47 +43,73 @@ h2 {
     padding: 20px;
 }
 
+.header-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .form {
     display: grid;
-    grid-template-columns: repeat(2,512px);
+    justify-content: center;
+    grid-template-columns: repeat(2,300px);
 }
 
 .form div {
-    margin-bottom: 5px;
+    /* move content in grid (15px) */
+    margin-left: 15px;
+}
+
+.form select {
+    /* move content in grid (15px) */
+    margin-left: 15px;
 }
 
 .form label {
     padding-right: 20px;
 }
 
-.gender-value {
-    display: flex;
+button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #8f8f8f;
+    border-radius: 20px;
 }
 
-.shirt-types {
-    display: flex;
+/* box input */
+input {
+    border: 1px solid #8f8f8f;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* margin space between label top and bottom */
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.shirt-size-values {
-    display: flex;
-}
-
-.type-run-option {
-    display: grid;
-    grid-template-columns: repeat(2,256px);
+/* box select */
+select {
+    border: 1px solid #8f8f8f;
+    border-radius: 10px;
+    width: 243px;
+    height: 40px;
+    /* margin space between label top and bottom */
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .box-button {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-button {
-    width: 256px;
-    height: 30px;
+.cancel {
+    margin-right: 5px;
 }
 
 .submit {
-    margin-left: 10px;
+    margin-left: 5px;
 }
