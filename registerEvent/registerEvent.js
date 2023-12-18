@@ -10,7 +10,7 @@ function submitData(){
     let shirtSizesDOM = document.querySelector("input[name=shirt-size]")
     let typeRunDOM = document.querySelector("input[name=type-run]")
     
-    const dataRegister = {
+    const dataRegisterEvent = {
         firstname: firstnameDOM.value,
         lastname: lastnameDOM.value,
         gender: genderDOM.value,
@@ -23,7 +23,7 @@ function submitData(){
         typeRun: typeRunDOM.value
     }
 
-    console.log(dataRegister)
+    console.log(dataRegisterEvent)
 }   
 
 function cancelData(){
