@@ -21,7 +21,8 @@ body {
 
 .header {
     display: flex;
-    background-color: rgb(195, 195, 195);
+    background-color: #5ED8FF;
+
 }
 
 .menu {

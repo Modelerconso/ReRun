@@ -9,7 +9,7 @@ function submitData(){
     let shirtTypesDOM = document.querySelector("input[name=shirt-type]")
     let shirtSizesDOM = document.querySelector("input[name=shirt-size]")
     let typeRunDOM = document.querySelector("input[name=type-run]")
-    
+     
     const dataRegisterEvent = {
         firstname: firstnameDOM.value,
         lastname: lastnameDOM.value,
