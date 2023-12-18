@@ -12,6 +12,19 @@ body {
     font-family: 'kanit';
 } 
 
+.menu {
+    display: flex;
+    float: right;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 10px;
+    list-style-type: none;
+    margin-right: 5px;
+    color: black;
+}
+
 .contrain {
     width: 100%;
     max-width: 1024px;
@@ -45,12 +58,72 @@ body {
     border: 1px solid black;
     border-radius: 20px;
     width: 728px;
-    height: 512px;
+    height: 420px;
 }
 
 .img-login {
     border: 1px solid rgb(125, 125, 125);
     border-radius: 20px 0px 0px 20px;
     width: 364px;
-    height: 512px;
+    height: 420px;
 }
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 20px 20px 0px;
+    width: 364px;
+    height: 420px;
+}
+
+.background-login {
+    width: 250px;
+    height: 350px;
+}
+
+.header-login {
+    margin: 15px;
+}
+
+.background-login .header-login {
+    text-align: center;
+}
+.background-login .header-login label {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.input-information {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 15px;
+}
+
+input {
+    width: 180px;
+    height: 30px;
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.username {
+    margin-bottom: 10px;
+}
+
+.submit{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 25px;
+    width: 100px;
+    height: 30px;
+}
+
