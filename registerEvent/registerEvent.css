@@ -91,9 +91,11 @@ input {
 /* box select */
 select {
     border: 1px solid #8f8f8f;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 243px;
-    height: 40px;
+    height: 43px;
+    padding-left: 20px;
+    padding-right: 20px;
     /* margin space between label top and bottom */
     margin-top: 15px;
     margin-bottom: 15px;
@@ -102,7 +104,7 @@ select {
 .box-button {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 30px;
     margin-bottom: 25px;
 }
 

@@ -81,30 +81,30 @@
                         <input type="email" name="email" >
                     </div>
                 </div>
-                <div class="shirt">
+                <div class="shirt-types">
                     <div>
                         <label>ชนิดของเสื้อ</label>
                     </div>
-                    <select class="shirt-types">
+                    <select id="shirt-type-values">
                         <option name="shirt-type" value="แขนกุด">แขนกุด</option>
                     </select>
                 </div>
-                <div class="shirt-size">
+                <div class="shirt-sizes">
                     <div>
                         <label>ขนาดของเสื้อ</label>
                     </div>
-                    <select class="shirt-size-values">
+                    <select id="shirt-size-values">
                         <option name="shirt-size" value="S">S</option>
                         <option name="shirt-size" value="M">M</option>
                         <option name="shirt-size" value="L">L</option>
                     </select>
                 </div>
-                <div class="type-run">
+                <div class="run-types">
                     <div>
                         <label>ประเภทของการแข่งขัน</label>
                     </div>
-                    <select class="type-run-option">
-                        <option value="funrun">Funrun</option>
+                    <select id="run-type-values">
+                        <option name="run-type" value="funrun">Funrun</option>
                     </select>
                 </div>
             </div>
@@ -116,6 +116,18 @@
                     <button id="submit-register" onclick="submitData()" name="submit">ส่งข้อมูล</button>
                 </div>
             </div>
+
+
+             <!-- status payment -->
+            <!-- <div class="status-payment">
+                 <div class="header-payment">
+                    <label>สถานะการชำระเงิน</label>
+                </div>
+                <div class="content-payment">
+
+                </div>
+            </div> -->
+
         </div>
     </div>
     <!-- Footer page -->
@@ -126,6 +138,6 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="registerEvent.js"></script>
 </body>
 </html>
