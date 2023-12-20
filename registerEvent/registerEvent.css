@@ -150,13 +150,6 @@ button {
     height: 300px;
 }
 
-.line-step {
-    width: 600px;
-    height: 2px;
-    border: 1px solid rgb(128, 128, 128);
-    background-color: rgb(128, 128, 128);
-}
-
 .circles {
     display: flex;
     justify-content: center;
@@ -177,3 +170,25 @@ button {
     text-align: center;
     font-size: 18px;
 }
+
+/* detail code */
+/* for sumited register 
+.code {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(1,600px);
+}
+
+.header-code {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail-code {
+    width: 600px;
+    height: 400px;
+    margin-bottom: 20px;
+}*/
+
+/* Footer page */
