@@ -1,3 +1,4 @@
+/* All register page */
 @font-face {
     font-family: 'kanit';
     src: url('../Kanit/Kanit-Regular.ttf');
@@ -12,6 +13,7 @@ body {
     font-family: 'kanit';
 } 
 
+/* Size contrain */
 .contrain {
     width: 100%;
     max-width: 1024px;
@@ -19,10 +21,11 @@ body {
     margin-right: auto;
 }
 
+/* Menu */
 .header {
     display: flex;
     background-color: #5ED8FF;
-
+    height: 60px;
 }
 
 .menu {
@@ -31,12 +34,15 @@ body {
 
 .menu a {
     text-decoration: none;
-    padding: 10px;
+    padding: 15px;
     list-style-type: none;
     margin-right: 5px;
     color: black;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+/* Header form */
 h2 {
     text-align: center;
     font-size: 32px;
@@ -48,6 +54,7 @@ h2 {
     padding-bottom: 30px;
 }
 
+/* Form */
 .form {
     display: grid;
     justify-content: center;
@@ -66,13 +73,6 @@ h2 {
 
 .form label {
     padding-right: 20px;
-}
-
-button {
-    width: 150px;
-    height: 40px;
-    border: 1px solid #8f8f8f;
-    border-radius: 20px;
 }
 
 /* box input */
@@ -101,10 +101,18 @@ select {
     margin-bottom: 15px;
 }
 
+/* Button submit and cancel */
+button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #8f8f8f;
+    border-radius: 20px;
+}
+
 .box-button {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 25px;
 }
 
@@ -114,4 +122,58 @@ select {
 
 .submit {
     margin-left: 5px;
+}
+
+/* Status payment */
+.status-payment {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(1,600px);
+}
+
+.header-payment {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.header-payment label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.detail-payment {
+    display: grid;
+    grid-template-columns: repeat(1,600px);
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 300px;
+}
+
+.line-step {
+    width: 600px;
+    height: 2px;
+    border: 1px solid rgb(128, 128, 128);
+    background-color: rgb(128, 128, 128);
+}
+
+.circles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0px 40px 0px 40px;
+}
+
+.detail {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
 }

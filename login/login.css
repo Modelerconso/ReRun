@@ -12,19 +12,28 @@ body {
     font-family: 'kanit';
 } 
 
+/* Menu */
+.header {
+    display: flex;
+    background-color: #5ED8FF;
+    height: 60px;
+}
+
 .menu {
     display: flex;
-    float: right;
 }
 
 .menu a {
     text-decoration: none;
-    padding: 10px;
+    padding: 15px;
     list-style-type: none;
     margin-right: 5px;
     color: black;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+/* contrain */
 .contrain {
     width: 100%;
     max-width: 1024px;
@@ -32,12 +41,7 @@ body {
     margin-right: auto;
 }
 
-.header {
-    display: flex;
-    height: 44px;
-    background-color: #5ED8FF;
-}
-
+/* Header form */
 .header .contrain{
    margin: auto;
 }
@@ -46,6 +50,7 @@ body {
     font-weight: bold;
  }
 
+ /* Body login */
 .section .contrain {
     display: flex;
     align-items: center;
