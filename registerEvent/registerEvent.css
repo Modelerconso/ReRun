@@ -71,12 +71,8 @@ h2 {
     margin-left: 15px;
 }
 
-.form label {
-    padding-right: 20px;
-}
-
 /* box input */
-input {
+.section .contrain input {
     border: 1px solid #8f8f8f;
     border-radius: 20px;
     width: 200px;
@@ -129,6 +125,7 @@ button {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(1,600px);
+    margin-bottom: 30px;
 }
 
 .header-payment {
@@ -192,3 +189,135 @@ button {
 }*/
 
 /* Footer page */
+.footer {
+    background-color: #5ED8FF;
+}
+.detail-footer {
+    display: flex;
+}
+
+/* contact */
+
+.background-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.contact {
+    height: 55%;
+    width: 70%;
+}
+
+.header-contact {
+    margin-bottom: 10px;
+}
+
+.header-contact label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact ul {
+    padding-left: 20px;
+}
+
+/* about */
+.background-about-rerun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.about-rerun {
+    height: 55%;
+    width: 70%;
+}
+
+.header-about {
+    margin-bottom: 10px;
+}
+
+.header-about label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-rerun ul {
+    padding-left: 20px;
+}
+
+/* comment */
+.background-comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.header-comment label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-comment {
+    margin-bottom: 10px;
+}
+
+.comment {
+    height: 55%;
+    width: 80%;
+}
+
+.emoji-comment {
+    display: flex;
+    height: 70px;
+    margin-bottom: 10px;
+
+}
+
+.image-emoji{
+    display: flex;
+    mix-blend-mode: multiply;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-emoji {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-emoji img {
+    width: 40px;
+    height: 40px;
+}
+
+.sticker-deatil {
+    width: 47px;
+    height: 50px;
+    margin-right: 15px;
+}
+.box-comment {
+    display: flex;
+    width: 341px;
+    height: 60px;
+}
+
+#text-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(127, 127, 127);
+    width: 230px;
+    height: 45px;
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
