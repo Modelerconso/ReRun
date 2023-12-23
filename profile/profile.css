@@ -1,0 +1,244 @@
+/* All register page */
+@font-face {
+    font-family: 'kanit';
+    src: url('../Kanit/Kanit-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'kanit';
+} 
+
+/* Size contrain */
+.contrain {
+    width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Menu */
+.header {
+    display: flex;
+    background-color: #5ED8FF;
+    height: 60px;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 15px;
+    list-style-type: none;
+    margin-right: 5px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Header profile */
+.header-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 40px;
+    background-color: #d7d7d7;
+}
+
+.image-profile {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.image-profile img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Information */
+.form {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2,300px);
+}
+
+.form div {
+    /* move content in grid (15px) */
+    margin-left: 15px;
+}
+
+/* box input */
+.section .contrain input {
+    border: 1px solid #8f8f8f;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* margin space between label top and bottom */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Button edit*/
+button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid #8f8f8f;
+    border-radius: 20px;
+}
+
+.box-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.edit {
+    margin-left: 5px;
+}
+
+/* Footer page */
+.footer {
+    background-color: #5ED8FF;
+    margin-top: 100px;
+}
+.detail-footer {
+    display: flex;
+}
+
+/* contact */
+.background-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.contact {
+    height: 55%;
+    width: 70%;
+}
+
+.header-contact {
+    margin-bottom: 10px;
+}
+
+.header-contact label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact ul {
+    padding-left: 20px;
+}
+
+/* about */
+.background-about-rerun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.about-rerun {
+    height: 55%;
+    width: 70%;
+}
+
+.header-about {
+    margin-bottom: 10px;
+}
+
+.header-about label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-rerun ul {
+    padding-left: 20px;
+}
+
+/* comment */
+.background-comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 341px;
+    height: 290px;
+}
+
+.header-comment label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-comment {
+    margin-bottom: 10px;
+}
+
+.comment {
+    height: 55%;
+    width: 80%;
+}
+
+.emoji-comment {
+    display: flex;
+    height: 70px;
+    margin-bottom: 10px;
+
+}
+
+.image-emoji{
+    display: flex;
+    mix-blend-mode: multiply;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-emoji {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-emoji img {
+    width: 40px;
+    height: 40px;
+}
+
+.sticker-deatil {
+    width: 47px;
+    height: 50px;
+    margin-right: 15px;
+}
+.box-comment {
+    display: flex;
+    width: 341px;
+    height: 60px;
+}
+
+#text-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(127, 127, 127);
+    width: 230px;
+    height: 45px;
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
