@@ -42,6 +42,120 @@ body {
     font-weight: bold;
 }
 
+/* Ranking */
+.background-ranking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bdbdbd;
+    height: 450px;
+}
+.ranking-finish-event {
+    background-color: #bdbdbd;
+    width: 600px;
+}
+
+#text-header-ranking {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.body-ranking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 360px;
+    width: 600px;
+}
+
+.text {
+    /* margin-left: 73.27px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text label {
+    font-size: 14px;
+}
+
+.circle-ranking-1 {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-top: 4px;
+    margin-left: 25px;
+}
+
+.rank-1 {
+    width: 200px;
+    height: 360px;
+    margin-right: 1px;
+}
+
+.chart-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 200px;
+    height: 180px;
+}
+
+.rank-2 {
+    width: 200px;
+    height: 360px;
+    margin-right: 1px;
+}
+
+.chart-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 200px;
+    height: 150px;
+}
+
+.circle-ranking-2 {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-top: 34px;
+    margin-left: 25px;
+}
+
+.rank-3 {
+    width: 200px;
+    height: 360px;
+    margin-right: 1px;
+}
+
+.chart-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 200px;
+    height: 125px;
+}
+
+.circle-ranking-3 {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-top: 59px;
+    margin-left: 25px;
+}
+
+#number-ranking {
+    font-size: 32px;
+    font-weight: bold;
+}
+
 /* Header form */
 h2 {
     text-align: center;
@@ -49,7 +163,7 @@ h2 {
     padding: 20px;
 }
 
-.header-section {
+.header-form {
     padding-top: 30px;
     padding-bottom: 30px;
 }
