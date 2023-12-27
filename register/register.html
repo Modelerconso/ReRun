@@ -79,7 +79,11 @@
                                 <label>เพศ</label>
                             </div>
                             <div>
-                                <input type="text" id="gender" name="gender">
+                                <select name="gender" id="gender">
+                                    <option value="ชาย">ชาย</option>
+                                    <option value="หญิง">หญิง</option>
+                                    <option value="ไม่ระบุ">ไม่ระบุ</option>
+                                </select>
                             </div>
                         </div>
                         <div class="input-data">
@@ -110,10 +114,10 @@
                     <div class="box-button">
                         <div class="box">
                             <div class="cancel">
-                                <button id="cancel-login" onclick="loginData()" name="cancel">Cancel</button>
+                                <button id="cancel-login" onclick="location.href='../login/login.html'" name="cancel">Cancel</button>
                             </div>
                             <div class="submit">
-                                <button id="submit-login" onclick="loginData()" name="confirm">Confirm</button>
+                                <button id="submit-login" onclick="getRegisterData()" name="confirm">Confirm</button>
                             </div>
                         </div>
                     </div>
@@ -123,5 +127,7 @@
         </div>
     </div>
 
+    <!-- Script -->
+    <script src="register.js"></script>
 </body>
 </html>

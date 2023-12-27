@@ -22,10 +22,12 @@ function submitData(){
         shirtSize: shirtSizesDOM.value,
         typeRun: typeRunDOM.value
     }
-
-    console.log(dataRegisterEvent)
 }   
 
-function cancelData(){
-    
+function clearData(){
+    document.querySelector("input[name=email]").value = ""
+    document.querySelector("input[name=phone]").value = ""
+    document.getElementById("shirt-type-values").value = ""
+    document.getElementById("shirt-size-values").value = ""
+    document.getElementById("run-type-values").value = ""
 }

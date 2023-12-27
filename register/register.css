@@ -105,6 +105,15 @@ input {
     padding-right: 15px;
 }
 
+#gender {
+    width: 220px;
+    height: 32px;
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* Button submit and cancel */
 .box-button {
     display: flex;
