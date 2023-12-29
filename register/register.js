@@ -1,7 +1,6 @@
 // click Input (style border is origin) for data valid (red comeback to origin)
 const clickInput = (elementId) => {
     document.getElementById(elementId.id).style.border = "1px solid rgb(177, 177, 177)"
-    console.log("Hello World")
 }
 
 // check data validation
@@ -9,10 +8,10 @@ const dataValidation = (dataDOM) => {
     // if DOM is not have data. it will set style this input (red) and return false.
     if(!dataDOM.value){
         dataDOM.style.border = "1px solid red"
-        return false
+        return 1
     }else{
         // if DOM is have data return true.
-        return true
+        return 0
     }
 }
 
@@ -30,23 +29,23 @@ const getRegisterData = async() => {
     let phoneDOM = document.querySelector("input[name=phone]")
 
     // variable check data valid and message tell user.
-    let checkError = true
+    let checkError = 0
     let messageDOM = document.getElementById("message")
 
-    // Check all data valid in form.
-    checkError = dataValidation(usernameDOM)
-    checkError = dataValidation(firstpasswordDOM)
-    checkError = dataValidation(secondpasswordDOM)
-    checkError = dataValidation(emailDOM)
-    checkError = dataValidation(firstnameDOM)
-    checkError = dataValidation(lastnameDOM)
-    checkError = dataValidation(genderDOM)
-    checkError = dataValidation(birthdayDOM)
-    checkError = dataValidation(numbercardDOM)
-    checkError = dataValidation(phoneDOM)
+    // Check all data valid in form. (if it have number more 1 data invalid)
+    checkError += dataValidation(usernameDOM)
+    checkError += dataValidation(firstpasswordDOM)
+    checkError += dataValidation(secondpasswordDOM)
+    checkError += dataValidation(emailDOM)
+    checkError += dataValidation(firstnameDOM)
+    checkError == dataValidation(lastnameDOM)
+    checkError += dataValidation(genderDOM)
+    checkError += dataValidation(birthdayDOM)
+    checkError += dataValidation(numbercardDOM)
+    checkError += dataValidation(phoneDOM)
 
     // Validation form
-    if(checkError){
+    if(checkError==0){
         // It is not have error for input data (full data in form).
         // Collect data
         let dataRegister = {
