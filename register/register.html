@@ -31,7 +31,7 @@
                                 <label>Username</label>
                             </div>
                             <div>
-                                <input type="text" id="username" name="username">
+                                <input type="text" id="username" name="username" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -39,7 +39,7 @@
                                 <label>Password</label>
                             </div>
                             <div>
-                                <input type="password" id="password-1" name="password-1">
+                                <input type="password" id="password-1" name="password-1" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -47,7 +47,7 @@
                                 <label>Password</label>
                             </div>
                             <div>
-                                <input type="password" id="password-2" name="password-2">
+                                <input type="password" id="password-2" name="password-2" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -55,7 +55,7 @@
                                 <label>Email</label>
                             </div>
                             <div>
-                                <input type="email" id="email" name="email">
+                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com" onclick = "clickInput(this)" required>
                             </div>
                         </div>
                         <div class="input-data">
@@ -63,7 +63,7 @@
                                 <label>ชื่อ</label>
                             </div>
                             <div>
-                                <input type="text" id="firstname" name="firstname">
+                                <input type="text" id="firstname" name="firstname" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -71,7 +71,7 @@
                                 <label>นามสกุล</label>
                             </div>
                             <div>
-                                <input type="text" id="lastname" name="lastname">
+                                <input type="text" id="lastname" name="lastname" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -91,7 +91,7 @@
                                 <label>วันเกิด</label>
                             </div>
                             <div>
-                                <input type="date" id="birthday" name="birthday">
+                                <input type="date" id="birthday" name="birthday" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -99,7 +99,7 @@
                                 <label>เลขบัตรประจำตัวประชาชน</label>
                             </div>
                             <div>
-                                <input type="text" id="number-card" name="number-card">
+                                <input type="text" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" onclick = "clickInput(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -107,17 +107,18 @@
                                 <label>เบอร์โทร</label>
                             </div>
                             <div>
-                                <input type="text" id="phone" name="phone">
+                                <input type="text" id="phone" name="phone" placeholder="Ex. 012-345-6789" onclick = "clickInput(this)">
                             </div>
                         </div>
                     </div>
+                    <div id="message" class="message"></div>
                     <div class="box-button">
                         <div class="box">
                             <div class="cancel">
                                 <button id="cancel-login" onclick="location.href='../login/login.html'" name="cancel">Cancel</button>
                             </div>
                             <div class="submit">
-                                <button id="submit-login" onclick="getRegisterData()" name="confirm">Confirm</button>
+                                <button id="submit-login" onclick="getRegisterData()" name="register">Register</button>
                             </div>
                         </div>
                     </div>
@@ -128,6 +129,7 @@
     </div>
 
     <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="register.js"></script>
 </body>
 </html>

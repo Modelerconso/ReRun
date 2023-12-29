@@ -1,4 +1,23 @@
-function getRegisterData(){
+// click Input (style border is origin) for data valid (red comeback to origin)
+const clickInput = (elementId) => {
+    document.getElementById(elementId.id).style.border = "1px solid rgb(177, 177, 177)"
+    console.log("Hello World")
+}
+
+// check data validation
+const dataValidation = (dataDOM) => {
+    // if DOM is not have data. it will set style this input (red) and return false.
+    if(!dataDOM.value){
+        dataDOM.style.border = "1px solid red"
+        return false
+    }else{
+        // if DOM is have data return true.
+        return true
+    }
+}
+
+// Get data register user.
+const getRegisterData = async() => {
     let usernameDOM = document.querySelector("input[name=username]")
     let firstpasswordDOM = document.querySelector("input[name=password-1]")
     let secondpasswordDOM = document.querySelector("input[name=password-2]")
@@ -10,18 +29,63 @@ function getRegisterData(){
     let numbercardDOM = document.querySelector("input[name=number-card]")
     let phoneDOM = document.querySelector("input[name=phone]")
 
-    let dataRegister = {
-        username: usernameDOM.value,
-        firstpassword: firstpasswordDOM.value,
-        secondpassword: secondpasswordDOM.value,
-        email: emailDOM.value,
-        firstname: firstnameDOM.value,
-        lastname: lastnameDOM.value,
-        gender: genderDOM.value,
-        birthday: birthdayDOM.value,
-        numbercard: numbercardDOM.value,
-        phone: phoneDOM.value
+    // variable check data valid and message tell user.
+    let checkError = true
+    let messageDOM = document.getElementById("message")
+
+    // Check all data valid in form.
+    checkError = dataValidation(usernameDOM)
+    checkError = dataValidation(firstpasswordDOM)
+    checkError = dataValidation(secondpasswordDOM)
+    checkError = dataValidation(emailDOM)
+    checkError = dataValidation(firstnameDOM)
+    checkError = dataValidation(lastnameDOM)
+    checkError = dataValidation(genderDOM)
+    checkError = dataValidation(birthdayDOM)
+    checkError = dataValidation(numbercardDOM)
+    checkError = dataValidation(phoneDOM)
+
+    // Validation form
+    if(checkError){
+        // It is not have error for input data (full data in form).
+        // Collect data
+        let dataRegister = {
+            username: usernameDOM.value,
+            firstpassword: firstpasswordDOM.value,
+            secondpassword: secondpasswordDOM.value,
+            email: emailDOM.value,
+            firstname: firstnameDOM.value,
+            lastname: lastnameDOM.value,
+            gender: genderDOM.value,
+            birthday: birthdayDOM.value,
+            numbercard: numbercardDOM.value,
+            phone: phoneDOM.value
+        }
+
+        // Register data
+        try{
+            const response = await axios.post(
+                'http://localhost:8000/user/register',
+                dataRegister
+            )
+            console.log(response.data)
+        } catch(error){
+            console.log(error)
+        }
+        console.log("ลงทะเบียนสำเร็จ")
+
+        // Show message success
+        messageDOM.innerText = "ลงทะเบียนสำเร็จ"
+        messageDOM.className = "message success"
+    }else{
+        // Data invalid
+        // Show message unsuccess.
+        let errorDOM = "กรอกข้อมูลไม่ครบถ้วน"
+        console.log("ลงทะเบียนไม่สำเร็จ")
+
+        // insert text error to html.
+        messageDOM.innerHTML = errorDOM
+        messageDOM.className = "message unsuccess"
     }
     
-    console.log(dataRegister)
 }
