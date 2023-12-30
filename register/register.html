@@ -55,7 +55,7 @@
                                 <label>Email</label>
                             </div>
                             <div>
-                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com" onclick="clickInput(this)" required>
+                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" onclick="clickInput(this)" required>
                             </div>
                         </div>
                         <div class="input-data">
@@ -99,7 +99,7 @@
                                 <label>เลขบัตรประจำตัวประชาชน</label>
                             </div>
                             <div>
-                                <input type="text" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" onclick="clickInput(this)">
+                                <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" onclick="clickInput(this)" oninput="checkLengthNumber(this,13)" maxlength="13" >
                             </div>
                         </div>
                         <div class="input-data">
@@ -107,7 +107,7 @@
                                 <label>เบอร์โทร</label>
                             </div>
                             <div>
-                                <input type="text" id="phone" name="phone" placeholder="Ex. 012-345-6789" onclick="clickInput(this)">
+                                <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" onclick="clickInput(this)" oninput="checkLengthNumber(this,10)" maxlength="10">
                             </div>
                         </div>
                     </div>

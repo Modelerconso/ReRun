@@ -3,14 +3,29 @@ const clickInput = (elementId) => {
     document.getElementById(elementId.id).style.border = "1px solid rgb(177, 177, 177)"
 }
 
-// check data validation
+// check lenght number card and phone
+const checkLengthNumber = (elementDOM,number) =>{
+    var input = document.getElementById(elementDOM.id);
+    if (input.value.length > number) {
+        input.value = input.value.slice(0, number); // Truncate to 13 characters
+    }
+}
+
+// check all data validation
 const dataValidation = (dataDOM) => {
-    // if DOM is not have data. it will set style this input (red) and return false.
-    if(!dataDOM.value){
+    // for check format 
+    let patternEmail = ".+@gmail\.com" 
+
+    // if DOM is not have data. it will set style this input (red) and return 1.
+    if(!dataDOM.value && dataDOM.id != "email"){
+        dataDOM.style.border = "1px solid red"
+        return 1
+    } // if data emtry (for id email) or it isn't match format email and id equal 'email' --> return 1 (error)
+    else if(!dataDOM.value || (!dataDOM.value.match(patternEmail) && dataDOM.id == "email")) {
         dataDOM.style.border = "1px solid red"
         return 1
     }else{
-        // if DOM is have data return true.
+        // if DOM is have data return 0.
         return 0
     }
 }
@@ -43,7 +58,9 @@ const getRegisterData = async() => {
     checkError += dataValidation(birthdayDOM)
     checkError += dataValidation(numbercardDOM)
     checkError += dataValidation(phoneDOM)
-
+    // Check format email
+    checkError += dataValidation(emailDOM)
+    
     // Validation form
     if(checkError==0){
         // It is not have error for input data (full data in form).
@@ -79,7 +96,7 @@ const getRegisterData = async() => {
     }else{
         // Data invalid
         // Show message unsuccess.
-        let errorDOM = "กรอกข้อมูลไม่ครบถ้วน"
+        let errorDOM = "กรอกข้อมูลไม่ครบถ้วน!"
         console.log("ลงทะเบียนไม่สำเร็จ")
 
         // insert text error to html.

@@ -44,14 +44,14 @@ body {
  /* Body register */
  .section .contrain {
     display: flex;
-    margin-top: 25px;
+    margin-top: 55px;
     margin-bottom: 25px;
     justify-content: center;
 }
 
 .box-register {
     display: flex;
-    background-color: #e4e4e4;
+    background-color: #ffffff;
     justify-content: center;
     border: 1px solid rgb(177, 177, 177);
     border-radius: 20px;
@@ -101,6 +101,17 @@ input {
     border-radius: 20px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+/* arrow in input type number is none */
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 }
 
 #gender {
