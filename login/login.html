@@ -32,19 +32,25 @@
                         </div>
                         <div class="input-information">
                             <div class="username">
-                                <div>
-                                    <label>Username</label>
+                                <div class="username-text">
+                                    <div>
+                                        <label>Username</label>
+                                    </div>
+                                    <div id="validation-username"></div>
                                 </div>
                                 <div>
-                                    <input type="text" name="username">
+                                    <input type="text" id="username" name="username">
                                 </div>
                             </div>
                             <div class="password">
-                                <div>
-                                    <label>Password</label>
+                                <div class="password-text">
+                                    <div>
+                                        <label>Password</label>
+                                    </div>
+                                    <div id="validation-password"></div>
                                 </div>
                                 <div>
-                                    <input type="password" name="password">
+                                    <input type="password" id="password" name="password">
                                 </div>
                             </div>
                         </div>
@@ -62,6 +68,8 @@
         </div>
     </div>
     
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="login.js"></script>
 </body>
 </html>

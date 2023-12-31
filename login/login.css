@@ -110,6 +110,29 @@ body {
     margin: 15px;
 }
 
+/* validation login username */
+.username-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#validation-username {
+    font-size: 12px;
+    color: red;
+}
+
+#validation-password {
+    font-size: 12px;
+    color: red;
+}
+
 input {
     width: 190px;
     height: 30px;

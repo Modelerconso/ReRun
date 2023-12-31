@@ -158,9 +158,20 @@ input[type="number"] {
     margin-left: 10px;
 }
 
-button {
+#submit-login {
+    border: 1px solid rgb(138, 138, 138);
+    background-color: #007bff;
+    border-radius: 25px;
+    color: #ffffff;
+    width: 100px;
+    height: 30px;
+}
+
+#cancel-login {
     border: 1px solid rgb(138, 138, 138);
     border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+    color: black;
     width: 100px;
     height: 30px;
 }

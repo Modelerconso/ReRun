@@ -21,27 +21,47 @@ const connectMySQL = async() => {
 }
 
 // Manager data register user.
-// get user in database.
-app.get("/user/get/:id", async (req,res) => {
+// Check login in database.
+app.post("/user/login", async (req,res) => {
 
     try{
-        let users = await conn.query('SELECT * FROM user')
-        const id = req.params.id
+        let usernameLogin = req.body.username
+        let passwordLogin = req.body.password
 
-        // find id in database.
-        let getUser = users[0].find((user) => user.id == parseInt(id))
-
-        //if it not found user send message
-        if(!getUser){
-            return res.send("It not found id in user.")
+        // Check username or email
+        let queryUser = 'SELECT * FROM user WHERE username = ? or email = ?'
+        let getUser = await conn.query(queryUser,[usernameLogin,usernameLogin])
+        // Select value and index 0
+        let dataUser = getUser[0][0]
+        if(!dataUser){
+            usernameInvalid = {
+                element: "username",
+                valid: false,
+                message: "Username ไม่ถูกต้อง!"
+            }
+            return res.send(usernameInvalid)
+        } 
+        
+        //if password is not correct.
+        if(dataUser.firstpassword != passwordLogin){
+            passwordInvalid = {
+                element: "password",
+                valid: false,
+                message: "Password ไม่ถูกต้อง!"
+            }
+            return res.send(passwordInvalid)
         }
 
-        // Output user
+        // Output user when username or email and password correct.
         res.json({
-            id: getUser.id,
-            firstname: getUser.firstname,
-            lastname: getUser.lastname,
-            age: getUser.age
+            username: dataUser.username,
+            firstname: dataUser.firstname,
+            lastname: dataUser.lastname,
+            email: dataUser.email,
+            age: dataUser.age,
+            birthday: dataUser.birthday,
+            phone: dataUser.phone,
+            valid: true
         })
 
     } catch(error) {

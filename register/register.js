@@ -84,15 +84,15 @@ const getRegisterData = async() => {
                 'http://localhost:8000/user/register',
                 dataRegister
             )
-            console.log(response.data)
+            console.log("ลงทะเบียนสำเร็จ")
+            // Show message success
+            messageDOM.innerText = "ลงทะเบียนสำเร็จ"
+            messageDOM.className = "message success"
+
         } catch(error){
             console.log(error)
         }
-        console.log("ลงทะเบียนสำเร็จ")
-
-        // Show message success
-        messageDOM.innerText = "ลงทะเบียนสำเร็จ"
-        messageDOM.className = "message success"
+        
     }else{
         // Data invalid
         // Show message unsuccess.
