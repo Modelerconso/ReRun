@@ -26,56 +26,77 @@
                     </div>
                     <div class="input-information">
                         <div class="input-data">
-                            <div class="text">
-                                <label>Username</label>
+                            <div>
+                                <div id="text-username">
+                                    <label>Username</label>
+                                </div>
+                                <div id="response-username"></div>
                             </div>
                             <div>
-                                <input type="text" id="username" name="username" oninput="onInputData(this)">
+                                <input type="text" id="username" name="username" placeholder="ABCTest" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>Password</label>
+                            <div>
+                                <div id="text-firstpassword">
+                                    <label>Password</label>
+                                </div>
+                                <div id="response-firstpassword"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-1" name="password-1" oninput="onInputData(this)">
+                                <input type="password" id="password-1" name="password-1" placeholder="At least 8 characters long" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>Password</label>
+                            <div>
+                                <div id="text-secondpassword">
+                                    <label>Password</label>
+                                </div>
+                                <div id="response-secondpassword"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-2" name="password-2" oninput="onInputData(this)">
+                                <input type="password" id="password-2" name="password-2" placeholder="At least 8 characters long" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>Email</label>
+                            <div>
+                                <div id="text-email">
+                                    <label>Email</label>
+                                </div>
+                                <div id="response-email"></div>
                             </div>
                             <div>
                                 <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com$" oninput="onInputData(this)" required>
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>ชื่อ</label>
+                            <div>
+                                <div id="text-firstname">
+                                    <label>ชื่อ</label>
+                                </div>
+                                <div id="response-firstname"></div>
                             </div>
                             <div>
                                 <input type="text" id="firstname" name="firstname" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>นามสกุล</label>
+                            <div>
+                                <div id="text-lastname">
+                                    <label>นามสกุล</label>
+                                </div>
+                                <div id="response-lastname"></div>
                             </div>
                             <div>
                                 <input type="text" id="lastname" name="lastname" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>เพศ</label>
+                            <div>
+                                <div id="text-gender">
+                                    <label>เพศ</label>
+                                </div>
+                                <div id="response-gender"></div>
                             </div>
                             <div>
                                 <select name="gender" id="gender" oninput="onInputData(this)">
@@ -86,24 +107,33 @@
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>วันเกิด</label>
+                            <div>
+                                <div id="text-birthday">
+                                    <label>วันเกิด</label>
+                                </div>
+                                <div id="response-birthday"></div>
                             </div>
                             <div>
                                 <input type="date" id="birthday" name="birthday" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>เลขบัตรประจำตัวประชาชน</label>
+                            <div>
+                                <div id="text-number-card">
+                                    <label>เลขบัตรประจำตัวประชาชน</label>
+                                </div>
+                                <div id="response-number-card"></div>
                             </div>
                             <div>
                                 <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" oninput="onInputData(this)" oninput="checkLengthNumber(this,13)" maxlength="13" >
                             </div>
                         </div>
                         <div class="input-data">
-                            <div class="text">
-                                <label>เบอร์โทร</label>
+                            <div>
+                                <div id="text-phone">
+                                    <label>เบอร์โทร</label>
+                                </div>
+                                <div id="response-phone"></div>
                             </div>
                             <div>
                                 <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" oninput="onInputData(this)" oninput="checkLengthNumber(this,10)" maxlength="10">

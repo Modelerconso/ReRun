@@ -26,57 +26,151 @@ const onInputData = (elementDOM) => {
     }
 }
 
+// get data for element 
+const getDataFormElement = ({input,text,textEmtry,selfclass,classOther,selfid,idOther,message}) => {
+    let data ={
+        type: {
+            input: input,
+            text: text,
+            textEmtry: textEmtry
+        },
+        class: {
+            selfclass: selfclass,
+            classOther: classOther
+        },
+        id: {
+            selfid: selfid,
+            idOther: idOther
+        },
+        message: message
+    }
+    return data
+}
+
 // check all data emtry.
 const checkAllDataRegister = (allElement) => {
     let checkNumberEmpty = 0
+    let elementSelectSpecial = null
+    let data = {}
     // username
     if(!checkValue(allElement.usernameDOM.value)){
-        actionInput(allElement.usernameDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-username")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-username",message: "กรุณากรอก Username"})
+        actionInput(elementSelectSpecial,data)
+        // for input "username".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.usernameDOM,data)
         checkNumberEmpty += 1
     }
+    
     // first password
     if(!checkValue(allElement.firstpasswordDOM.value)){
-        actionInput(allElement.firstpasswordDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-firstpassword")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-firstpassword",message: "กรุณากรอก Password"})
+        actionInput(elementSelectSpecial,data)
+        // for input "first password".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.firstpasswordDOM,data)
         checkNumberEmpty += 1
     }
     // second password
     if(!checkValue(allElement.secondpasswordDOM.value)){
-        actionInput(allElement.secondpasswordDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-secondpassword")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-secondpassword",message: "กรุณากรอก Password"})
+        actionInput(elementSelectSpecial,data)
+        // for input "second password".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.secondpasswordDOM,data)
         checkNumberEmpty += 1
     }
     // email
     if(!checkValue(allElement.emailDOM.value)){
-        actionInput(allElement.emailDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-email")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-email",message: "กรุณากรอก Email"})
+        actionInput(elementSelectSpecial,data)
+        // for input "email".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.emailDOM,data)
         checkNumberEmpty += 1
     }
     // firstname
     if(!checkValue(allElement.firstnameDOM.value)){
-        actionInput(allElement.firstnameDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-firstname")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-firstname",message: "กรุณากรอก ชื่อ"})
+        actionInput(elementSelectSpecial,data)
+        // for input "first name".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.firstnameDOM,data)
         checkNumberEmpty += 1
     }
     // lastname
     if(!checkValue(allElement.lastnameDOM.value)){
-        actionInput(allElement.lastnameDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-lastname")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-lastname",message: "กรุณากรอก นามสกุล"})
+        actionInput(elementSelectSpecial,data)
+        // for input "lastname".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.lastnameDOM,data)
         checkNumberEmpty += 1
     }
     // gender
     if(!checkValue(allElement.genderDOM.value)){
-        actionInput(allElement.genderDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-gender")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-gender",message: "กรุณากรอก เพศ"})
+        actionInput(elementSelectSpecial,data)
+        // for input "gender".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.genderDOM,data)
         checkNumberEmpty += 1
     }
     // birthday
     if(!checkValue(allElement.birthdayDOM.value)){
-        actionInput(allElement.birthdayDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-birthday")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-birthday",message: "กรุณากรอก วันเกิด"})
+        actionInput(elementSelectSpecial,data)
+        // for input "birthday".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.birthdayDOM,data)
         checkNumberEmpty += 1
     }
     // number card
     if(!checkValue(allElement.numbercardDOM.value)){
-        actionInput(allElement.numbercardDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-number-card")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-number-card",message: "กรุณากรอก เลขบัตรประจำตัวประชาชน"})
+        actionInput(elementSelectSpecial,data)
+        // for input "numbercard".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.numbercardDOM,data)
         checkNumberEmpty += 1
     }
     // phone
     if(!checkValue(allElement.phoneDOM.value)){
-        actionInput(allElement.phoneDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-phone")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-phone",message: "กรุณากรอก เบอร์โทร"})
+        actionInput(elementSelectSpecial,data)
+        // for input "phone".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.phoneDOM,data)
         checkNumberEmpty += 1
     }
     return checkNumberEmpty == 0
@@ -85,9 +179,17 @@ const checkAllDataRegister = (allElement) => {
 // check all format data.
 const checkFormatValue = (allElement) => {
     let checkNumberNotMatchPattern = 0
+    let data = {}
     // email
     if(!allElement.emailDOM.value.match(allElement.emailDOM.pattern)){
-        actionInput(allElement.emailDOM)
+        // get element in html.
+        elementSelectSpecial = document.getElementById("response-email")
+        // get data and sent to function actionInput, style textEmptry.
+        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-email",message: "กรุณากรอก Gmail ให้ถูกต้อง"})
+        actionInput(elementSelectSpecial,data)
+        // for input "email".
+        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
+        actionInput(allElement.emailDOM,data)
         checkNumberNotMatchPattern += 1
     }
     return checkNumberNotMatchPattern == 0
@@ -99,8 +201,15 @@ const originalInput = (elementDOM) => {
 }
 
 // action input
-const actionInput = (elementDOM) => {
-    elementDOM.style.border = "1px solid red"
+const actionInput = (elementDOM,data) => {
+    if(data.type.input){
+        elementDOM.style.border = "1px solid red"
+    }
+    if(data.type.textEmtry){
+        elementDOM.innerHTML = data.message
+        elementDOM.style.color = "red"
+        document.getElementById(data.id.idOther).style.marginBottom = "0px"
+    }
 }
 
 // Get data register user.

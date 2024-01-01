@@ -89,9 +89,23 @@ body {
     margin-left: 39px;
 }
 
-.input-data .text {
-    margin-top: 10px;
-    margin-bottom: 10px;
+#text-username, #text-firstpassword, #text-secondpassword, 
+#text-email, #text-firstname, #text-lastname, 
+#text-gender, #text-birthday, #text-number-card,
+#text-phone {
+    margin-top: 17.5px;
+    margin-bottom: 17.5px;
+}
+
+#response-username, #response-firstpassword, #response-secondpassword, 
+#response-email, #response-firstname, #response-lastname, 
+#response-gender, #response-birthday, #response-number-card,
+#response-phone {
+    display: flex;
+    font-size: 12px;
+    justify-content: right;
+    color: red;
+    width: 215px;
 }
 
 input {
