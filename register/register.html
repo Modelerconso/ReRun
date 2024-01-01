@@ -30,7 +30,7 @@
                                 <label>Username</label>
                             </div>
                             <div>
-                                <input type="text" id="username" name="username" onclick="clickInput(this)">
+                                <input type="text" id="username" name="username" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -38,7 +38,7 @@
                                 <label>Password</label>
                             </div>
                             <div>
-                                <input type="password" id="password-1" name="password-1" onclick="clickInput(this)">
+                                <input type="password" id="password-1" name="password-1" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -46,7 +46,7 @@
                                 <label>Password</label>
                             </div>
                             <div>
-                                <input type="password" id="password-2" name="password-2" onclick="clickInput(this)">
+                                <input type="password" id="password-2" name="password-2" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -54,7 +54,7 @@
                                 <label>Email</label>
                             </div>
                             <div>
-                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" onclick="clickInput(this)" required>
+                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com$" oninput="onInputData(this)" required>
                             </div>
                         </div>
                         <div class="input-data">
@@ -62,7 +62,7 @@
                                 <label>ชื่อ</label>
                             </div>
                             <div>
-                                <input type="text" id="firstname" name="firstname" onclick="clickInput(this)">
+                                <input type="text" id="firstname" name="firstname" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -70,7 +70,7 @@
                                 <label>นามสกุล</label>
                             </div>
                             <div>
-                                <input type="text" id="lastname" name="lastname" onclick="clickInput(this)">
+                                <input type="text" id="lastname" name="lastname" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -78,7 +78,7 @@
                                 <label>เพศ</label>
                             </div>
                             <div>
-                                <select name="gender" id="gender" onclick="clickInput(this)">
+                                <select name="gender" id="gender" oninput="onInputData(this)">
                                     <option value="ชาย">ชาย</option>
                                     <option value="หญิง">หญิง</option>
                                     <option value="ไม่ระบุ">ไม่ระบุ</option>
@@ -90,7 +90,7 @@
                                 <label>วันเกิด</label>
                             </div>
                             <div>
-                                <input type="date" id="birthday" name="birthday" onclick="clickInput(this)">
+                                <input type="date" id="birthday" name="birthday" oninput="onInputData(this)">
                             </div>
                         </div>
                         <div class="input-data">
@@ -98,7 +98,7 @@
                                 <label>เลขบัตรประจำตัวประชาชน</label>
                             </div>
                             <div>
-                                <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" onclick="clickInput(this)" oninput="checkLengthNumber(this,13)" maxlength="13" >
+                                <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" oninput="onInputData(this)" oninput="checkLengthNumber(this,13)" maxlength="13" >
                             </div>
                         </div>
                         <div class="input-data">
@@ -106,11 +106,10 @@
                                 <label>เบอร์โทร</label>
                             </div>
                             <div>
-                                <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" onclick="clickInput(this)" oninput="checkLengthNumber(this,10)" maxlength="10">
+                                <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" oninput="onInputData(this)" oninput="checkLengthNumber(this,10)" maxlength="10">
                             </div>
                         </div>
                     </div>
-                    <div id="message" class="message"></div>
                     <div class="box-button">
                         <div class="box">
                             <div class="cancel">

@@ -41,8 +41,8 @@ body {
     margin-right: auto;
 }
 
- /* Body register */
- .section .contrain {
+/* Body register */
+.section .contrain {
     display: flex;
     margin-top: 55px;
     margin-bottom: 25px;
@@ -129,18 +129,6 @@ input[type="number"] {
     margin-left: 80px;
     padding-left: 45px;
     width: 450px;
-}
-
-.message.success {
-    display: block;
-    background-color: rgb(0, 205, 0);
-    color: white;
-}
-
-.message.unsuccess {
-    display: block;
-    background-color: rgb(221, 0, 0);
-    color: white;
 }
 
 /* Button submit and cancel */
