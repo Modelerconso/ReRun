@@ -30,10 +30,10 @@
                                 <div id="text-username">
                                     <label>Username</label>
                                 </div>
-                                <div id="response-username"></div>
+                                <div id="response-username" value="กรุณากรอก Username"></div>
                             </div>
                             <div>
-                                <input type="text" id="username" name="username" placeholder="ABCTest" oninput="onInputData(this)">
+                                <input type="text" id="username" name="username" placeholder="ABCTest" oninput="checkElement(this.id,'text-username','response-username')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -41,10 +41,10 @@
                                 <div id="text-firstpassword">
                                     <label>Password</label>
                                 </div>
-                                <div id="response-firstpassword"></div>
+                                <div id="response-firstpassword" value="กรุณากรอก Password"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-1" name="password-1" placeholder="At least 8 characters long" oninput="onInputData(this)">
+                                <input type="password" id="password-1" name="password-1" placeholder="At least 8 characters long" oninput="checkElement(this.id,'text-firstpassword','response-firstpassword')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -52,10 +52,10 @@
                                 <div id="text-secondpassword">
                                     <label>Password</label>
                                 </div>
-                                <div id="response-secondpassword"></div>
+                                <div id="response-secondpassword" value="กรุณากรอก Password"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-2" name="password-2" placeholder="At least 8 characters long" oninput="onInputData(this)">
+                                <input type="password" id="password-2" name="password-2" placeholder="At least 8 characters long" oninput="checkElement(this.id,'text-secondpassword','response-secondpassword')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -63,10 +63,10 @@
                                 <div id="text-email">
                                     <label>Email</label>
                                 </div>
-                                <div id="response-email"></div>
+                                <div id="response-email" value="กรุณากรอก Email"></div>
                             </div>
                             <div>
-                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com$" oninput="onInputData(this)" required>
+                                <input type="email" id="email" name="email" placeholder="Ex. abc@gmail.com" pattern=".+@gmail\.com$" oninput="checkElement(this.id,'text-email','response-email')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -74,10 +74,10 @@
                                 <div id="text-firstname">
                                     <label>ชื่อ</label>
                                 </div>
-                                <div id="response-firstname"></div>
+                                <div id="response-firstname" value="กรุณากรอก ชื่อ"></div>
                             </div>
                             <div>
-                                <input type="text" id="firstname" name="firstname" oninput="onInputData(this)">
+                                <input type="text" id="firstname" name="firstname" oninput="checkElement(this.id,'text-firstname','response-firstname')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -85,10 +85,10 @@
                                 <div id="text-lastname">
                                     <label>นามสกุล</label>
                                 </div>
-                                <div id="response-lastname"></div>
+                                <div id="response-lastname" value="กรุณากรอก นามสกุล"></div>
                             </div>
                             <div>
-                                <input type="text" id="lastname" name="lastname" oninput="onInputData(this)">
+                                <input type="text" id="lastname" name="lastname" oninput="checkElement(this.id,'text-lastname','response-lastname')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -96,10 +96,10 @@
                                 <div id="text-gender">
                                     <label>เพศ</label>
                                 </div>
-                                <div id="response-gender"></div>
+                                <div id="response-gender" value="กรุณากรอก เพศ"></div>
                             </div>
                             <div>
-                                <select name="gender" id="gender" oninput="onInputData(this)">
+                                <select name="gender" id="gender" oninput="checkElement(this.id,'text-gender','response-gender')">
                                     <option value="ชาย">ชาย</option>
                                     <option value="หญิง">หญิง</option>
                                     <option value="ไม่ระบุ">ไม่ระบุ</option>
@@ -111,10 +111,10 @@
                                 <div id="text-birthday">
                                     <label>วันเกิด</label>
                                 </div>
-                                <div id="response-birthday"></div>
+                                <div id="response-birthday" value="กรุณากรอก วันเกิด"></div>
                             </div>
                             <div>
-                                <input type="date" id="birthday" name="birthday" oninput="onInputData(this)">
+                                <input type="date" id="birthday" name="birthday" oninput="checkElement(this.id,'text-birthday','response-birthday')">
                             </div>
                         </div>
                         <div class="input-data">
@@ -122,10 +122,10 @@
                                 <div id="text-number-card">
                                     <label>เลขบัตรประจำตัวประชาชน</label>
                                 </div>
-                                <div id="response-number-card"></div>
+                                <div id="response-number-card" value="กรุณากรอก เลขบัตรประจำตัวประชาชน"></div>
                             </div>
                             <div>
-                                <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" oninput="onInputData(this)" oninput="checkLengthNumber(this,13)" maxlength="13" >
+                                <input type="number" id="number-card" name="number-card" placeholder="เลขบัตรประชาชน 13 หลัก" pattern="[0-9]{13}" oninput="checkLengthNumber(this,13)" onchange="checkElement(this.id,'text-number-card','response-number-card')" maxlength="13" >
                             </div>
                         </div>
                         <div class="input-data">
@@ -133,10 +133,10 @@
                                 <div id="text-phone">
                                     <label>เบอร์โทร</label>
                                 </div>
-                                <div id="response-phone"></div>
+                                <div id="response-phone" value="กรุณากรอก เบอร์โทร"></div>
                             </div>
                             <div>
-                                <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" oninput="onInputData(this)" oninput="checkLengthNumber(this,10)" maxlength="10">
+                                <input type="number" id="phone" name="phone" placeholder="Ex. 0123456789" pattern="[0-9]{10}" onchange="checkElement(this.id,'text-phone','response-phone')" oninput="checkLengthNumber(this,10)" maxlength="10">
                             </div>
                         </div>
                     </div>

@@ -101,10 +101,9 @@ body {
 #response-email, #response-firstname, #response-lastname, 
 #response-gender, #response-birthday, #response-number-card,
 #response-phone {
-    display: flex;
+    display: grid;
     font-size: 12px;
     justify-content: right;
-    color: red;
     width: 215px;
 }
 

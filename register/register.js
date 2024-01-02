@@ -1,3 +1,11 @@
+// check length number card and phone.
+const checkLengthNumber = (elementInput,number) => {
+    var input = document.getElementById(elementInput.id);
+    if (input.value.length > number) {
+        input.value = input.value.slice(0, number); // Truncate to 13 characters
+    }
+}
+
 // check value in input.
 const checkValue = (value) => {
     // if value is not emtry, return true.
@@ -8,235 +16,197 @@ const checkValue = (value) => {
     }
 }
 
-// check length number card and phone.
-const checkLengthNumber = (elementDOM,number) => {
-    var input = document.getElementById(elementDOM.id);
-    if (input.value.length > number) {
-        input.value = input.value.slice(0, number); // Truncate to 13 characters
-    }
-}
-
-// onInput (style border is origin) for data valid (red comeback to origin)
-const onInputData = (elementDOM) => {
-    elementDOM = document.getElementById(elementDOM.id)
-    if(checkValue(elementDOM.value)){
-        originalInput(elementDOM)
-    }else{
-        actionInput(elementDOM)
-    }
-}
-
-// get data for element 
-const getDataFormElement = ({input,text,textEmtry,selfclass,classOther,selfid,idOther,message}) => {
-    let data ={
-        type: {
-            input: input,
-            text: text,
-            textEmtry: textEmtry
-        },
-        class: {
-            selfclass: selfclass,
-            classOther: classOther
-        },
-        id: {
-            selfid: selfid,
-            idOther: idOther
-        },
-        message: message
-    }
-    return data
-}
-
-// check all data emtry.
-const checkAllDataRegister = (allElement) => {
+// check emtry and format data.
+const checkElement = (elementInputID,elementHeaderID,elemetResponseID) => {
     let checkNumberEmpty = 0
-    let elementSelectSpecial = null
-    let data = {}
-    // username
-    if(!checkValue(allElement.usernameDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-username")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-username",message: "กรุณากรอก Username"})
-        actionInput(elementSelectSpecial,data)
-        // for input "username".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.usernameDOM,data)
-        checkNumberEmpty += 1
-    }
+    let elementInput = document.getElementById(elementInputID)
+    let elementHeader = document.getElementById(elementHeaderID)
+    let elementResponse = document.getElementById(elemetResponseID)
     
-    // first password
-    if(!checkValue(allElement.firstpasswordDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-firstpassword")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-firstpassword",message: "กรุณากรอก Password"})
-        actionInput(elementSelectSpecial,data)
-        // for input "first password".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.firstpasswordDOM,data)
+    // username
+    if(!checkValue(elementInput.value) && (elementInput.id == "username")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
         checkNumberEmpty += 1
-    }
-    // second password
-    if(!checkValue(allElement.secondpasswordDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-secondpassword")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-secondpassword",message: "กรุณากรอก Password"})
-        actionInput(elementSelectSpecial,data)
-        // for input "second password".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.secondpasswordDOM,data)
+    } else if(checkValue(elementInput.value) && (elementInput.id == "username")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+    
+    // firstpassword
+    if(!checkValue(elementInput.value) && (elementInput.id == "password-1")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
         checkNumberEmpty += 1
-    }
-    // email
-    if(!checkValue(allElement.emailDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-email")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-email",message: "กรุณากรอก Email"})
-        actionInput(elementSelectSpecial,data)
-        // for input "email".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.emailDOM,data)
-        checkNumberEmpty += 1
-    }
-    // firstname
-    if(!checkValue(allElement.firstnameDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-firstname")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-firstname",message: "กรุณากรอก ชื่อ"})
-        actionInput(elementSelectSpecial,data)
-        // for input "first name".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.firstnameDOM,data)
-        checkNumberEmpty += 1
-    }
-    // lastname
-    if(!checkValue(allElement.lastnameDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-lastname")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-lastname",message: "กรุณากรอก นามสกุล"})
-        actionInput(elementSelectSpecial,data)
-        // for input "lastname".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.lastnameDOM,data)
-        checkNumberEmpty += 1
-    }
-    // gender
-    if(!checkValue(allElement.genderDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-gender")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-gender",message: "กรุณากรอก เพศ"})
-        actionInput(elementSelectSpecial,data)
-        // for input "gender".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.genderDOM,data)
-        checkNumberEmpty += 1
-    }
-    // birthday
-    if(!checkValue(allElement.birthdayDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-birthday")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-birthday",message: "กรุณากรอก วันเกิด"})
-        actionInput(elementSelectSpecial,data)
-        // for input "birthday".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.birthdayDOM,data)
-        checkNumberEmpty += 1
-    }
-    // number card
-    if(!checkValue(allElement.numbercardDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-number-card")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-number-card",message: "กรุณากรอก เลขบัตรประจำตัวประชาชน"})
-        actionInput(elementSelectSpecial,data)
-        // for input "numbercard".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.numbercardDOM,data)
-        checkNumberEmpty += 1
-    }
-    // phone
-    if(!checkValue(allElement.phoneDOM.value)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-phone")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-phone",message: "กรุณากรอก เบอร์โทร"})
-        actionInput(elementSelectSpecial,data)
-        // for input "phone".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.phoneDOM,data)
-        checkNumberEmpty += 1
-    }
-    return checkNumberEmpty == 0
-}
+    } else if(checkValue(elementInput.value) && (elementInput.id == "password-1")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
 
-// check all format data.
-const checkFormatValue = (allElement) => {
-    let checkNumberNotMatchPattern = 0
-    let data = {}
+    // secondpassword
+    if(!checkValue(elementInput.value) && (elementInput.id == "password-2")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "password-2")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+
     // email
-    if(!allElement.emailDOM.value.match(allElement.emailDOM.pattern)){
-        // get element in html.
-        elementSelectSpecial = document.getElementById("response-email")
-        // get data and sent to function actionInput, style textEmptry.
-        data = getDataFormElement({input: null,text: null,textEmtry: true,selfclass: null,classOther: null,selfid: null,idOther: "text-email",message: "กรุณากรอก Gmail ให้ถูกต้อง"})
-        actionInput(elementSelectSpecial,data)
-        // for input "email".
-        data = getDataFormElement({input: true,text: null,textEmtry: null,selfclass: null,classOther: null,selfid: null,idOther: null,message: null})
-        actionInput(allElement.emailDOM,data)
-        checkNumberNotMatchPattern += 1
-    }
-    return checkNumberNotMatchPattern == 0
+    if(!checkValue(elementInput.value) && (elementInput.id == "email")){
+        // value emptry
+        elementResponse.setAttribute('value','กรุณากรอก Email')
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "email")){
+        // check pattern data (email)
+        if(!elementInput.value.match(elementInput.pattern)){
+            // format invalid
+            elementResponse.setAttribute('value','Pattern ของ Email ไม่ถูกต้อง!')
+            actionInput(elementInput,elementHeader,elementResponse)
+            checkNumberEmpty += 1
+        }else{
+            // value isn't emptry
+            originalInput(elementInput,elementHeader,elementResponse)
+        }
+    } 
+
+    // firstname
+    if(!checkValue(elementInput.value) && (elementInput.id == "firstname")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "firstname")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+
+    // lastname
+    if(!checkValue(elementInput.value) && (elementInput.id == "lastname")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "lastname")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+
+    // gender
+    if(!checkValue(elementInput.value) && (elementInput.id == "gender")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "gender")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+
+    // birthday
+    if(!checkValue(elementInput.value) && (elementInput.id == "birthday")){
+        // value emptry
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "birthday")){
+        // value isn't emptry
+        originalInput(elementInput,elementHeader,elementResponse)
+    } 
+
+
+    // numbercard
+    if(!checkValue(elementInput.value) && (elementInput.id == "number-card")){
+        // value emptry
+        elementResponse.setAttribute('value','กรุณากรอก เลขบัตรประจำตัวประชาชน')
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "number-card")){
+        if(!elementInput.value.match(elementInput.pattern)){
+            // format invalid
+            elementResponse.setAttribute('value','กรุณากรอกหมายเลขให้ครบถ้วน!')
+            actionInput(elementInput,elementHeader,elementResponse)
+            checkNumberEmpty += 1
+        }else{
+            // value isn't emptry
+            originalInput(elementInput,elementHeader,elementResponse)
+        }
+    } 
+
+    // phone
+    if(!checkValue(elementInput.value) && (elementInput.id == "phone")){
+        // value emptry
+        elementResponse.setAttribute('value','กรุณากรอก เบอร์โทร')
+        actionInput(elementInput,elementHeader,elementResponse)
+        checkNumberEmpty += 1
+    } else if(checkValue(elementInput.value) && (elementInput.id == "phone")){
+        if(!elementInput.value.match(elementInput.pattern)){
+            // format invalid
+            elementResponse.setAttribute('value','กรุณากรอกเบอร์โทรให้ครบถ้วน!')
+            actionInput(elementInput,elementHeader,elementResponse)
+            checkNumberEmpty += 1
+        }else{
+            // value isn't emptry
+            originalInput(elementInput,elementHeader,elementResponse)
+        }
+    } 
+    
+    return checkNumberEmpty
 }
 
 // original input
-const originalInput = (elementDOM) => {
-    elementDOM.style.border = "1px solid rgb(177, 177, 177)"
+const originalInput = (elementInput,elementHeader,elementResponse) => {
+    elementInput.style.border = "1px solid rgb(177, 177, 177)"
+    elementResponse.innerHTML = ""
+    elementHeader.style.marginBottom = "17.5px"
 }
 
-// action input
-const actionInput = (elementDOM,data) => {
-    if(data.type.input){
-        elementDOM.style.border = "1px solid red"
-    }
-    if(data.type.textEmtry){
-        elementDOM.innerHTML = data.message
-        elementDOM.style.color = "red"
-        document.getElementById(data.id.idOther).style.marginBottom = "0px"
-    }
+// wrong input
+const actionInput = (elementInput,elementHeader,elementResponse) => {
+    elementInput.style.border = "1px solid red"
+    elementResponse.innerHTML = elementResponse.getAttribute("value")
+    elementResponse.style.color = "red"
+    elementHeader.style.marginBottom = "0px"
 }
 
 // Get data register user.
 const getRegisterData = async() => {
 
-    dataRegister = {
-        usernameDOM: document.querySelector("input[name=username]"),
-        firstpasswordDOM: document.querySelector("input[name=password-1]"),
-        secondpasswordDOM: document.querySelector("input[name=password-2]"),
-        emailDOM: document.querySelector("input[name=email]"),
-        firstnameDOM: document.querySelector("input[name=firstname]"),
-        lastnameDOM: document.querySelector("input[name=lastname]"),
-        genderDOM: document.getElementById("gender"),
-        birthdayDOM: document.querySelector("input[name=birthday]"),
-        numbercardDOM: document.querySelector("input[name=number-card]"),
-        phoneDOM: document.querySelector("input[name=phone]")
-    }
+    let usernameID = "username"
+    let firstpasswordID = "password-1"
+    let secondpasswordID = "password-2"
+    let emailID = "email"
+    let firstnameID = "firstname"
+    let lastnameID = "lastname"
+    let genderID = "gender"
+    let birthdayID = "birthday"
+    let numbercardID = "number-card"
+    let phoneID = "phone"
 
-    // check all data valid in form. (if it have number more 1 data invalid)
-    let checkErrorEmtryData = checkAllDataRegister(dataRegister)
-    // check format data
-    let checkErrorFormatData = checkFormatValue(dataRegister)
-    // combine together
-    let checkError = checkErrorEmtryData && checkErrorFormatData
+    let usernameDOM = document.getElementById(usernameID)
+    let firstpasswordDOM = document.getElementById(firstpasswordID)
+    let secondpasswordDOM = document.getElementById(secondpasswordID)
+    let emailDOM = document.getElementById(emailID)
+    let firstnameDOM = document.getElementById(firstnameID)
+    let lastnameDOM = document.getElementById(lastnameID)
+    let genderDOM = document.getElementById(genderID)
+    let birthdayDOM = document.getElementById(birthdayID)
+    let numbercardDOM = document.getElementById(numbercardID)
+    let phoneDOM = document.getElementById(phoneID)
+
+    // check all data valid in form. (if it have number more or equal 1 data invalid)
+    let checkError = 0
+    checkError += checkElement(usernameID,'text-username','response-username')
+    checkError += checkElement(firstpasswordID,'text-firstpassword','response-firstpassword')
+    checkError += checkElement(secondpasswordID,'text-secondpassword','response-secondpassword')
+    checkError += checkElement(emailID,'text-email','response-email')
+    checkError += checkElement(firstnameID,'text-firstname','response-firstname')
+    checkError += checkElement(lastnameID,'text-lastname','response-lastname')
+    checkError += checkElement(genderID,'text-gender','response-gender')
+    checkError += checkElement(birthdayID,'text-birthday','response-birthday')
+    checkError += checkElement(numbercardID,'text-number-card','response-number-card')
+    checkError += checkElement(phoneID,'text-phone','response-phone')
 
     // data register is ready send to database.
-    if(checkError){
+    if(checkError==0){
         // Collect data
         let dataRegister = {
             username: usernameDOM.value,
