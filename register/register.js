@@ -1,6 +1,6 @@
 // check length number card and phone.
 const checkLengthNumber = (elementInput,number) => {
-    var input = document.getElementById(elementInput.id);
+    let input = document.getElementById(elementInput.id);
     if (input.value.length > number) {
         input.value = input.value.slice(0, number); // Truncate to 13 characters
     }
@@ -17,146 +17,254 @@ const checkValue = (value) => {
 }
 
 // check emtry and format data.
-const checkElement = (elementInputID,elementHeaderID,elemetResponseID) => {
-    let checkNumberEmpty = 0
+const checkElement = async (elementInputID,elementHeaderID,elemetResponseID) => {
+
     let elementInput = document.getElementById(elementInputID)
     let elementHeader = document.getElementById(elementHeaderID)
     let elementResponse = document.getElementById(elemetResponseID)
     
     // username
-    if(!checkValue(elementInput.value) && (elementInput.id == "username")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "username")){
         // value emptry
+        elementResponse.setAttribute('value','กรุณากรอก Username')
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "username")){
-        // value isn't emptry
-        originalInput(elementInput,elementHeader,elementResponse)
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "username")){
+        // check duplicate username.
+        let message = ""
+        dataUsername = {
+            username: elementInput.value
+        }
+        try{
+            const response = await axios.post(
+                'http://localhost:8000/user/resgister-check-field',
+                dataUsername
+            )
+            message = response.data.message
+        } catch(error){
+            console.log(error)
+        }
+
+        if(message!="check field success"){
+            elementResponse.setAttribute('value',message)
+            actionInput(elementInput,elementHeader,elementResponse)
+            return 1
+        } else{
+            // value isn't emptry
+            elementResponse.setAttribute('value',"Username ใช้งานได้ ")
+            originalInput(elementInput,elementHeader,elementResponse)
+        }
     } 
     
     // firstpassword
-    if(!checkValue(elementInput.value) && (elementInput.id == "password-1")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "password-1")){
         // value emptry
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "password-1")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "password-1")){
         // value isn't emptry
         originalInput(elementInput,elementHeader,elementResponse)
     } 
 
     // secondpassword
-    if(!checkValue(elementInput.value) && (elementInput.id == "password-2")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "password-2")){
         // value emptry
+        elementResponse.setAttribute('value','กรุณากรอก Password')
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "password-2")){
-        // value isn't emptry
-        originalInput(elementInput,elementHeader,elementResponse)
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "password-2")){
+        // Check first password and this input
+        let firstpassword = document.getElementById("password-1").value
+        if((firstpassword != "") && firstpassword != elementInput.value){
+            elementResponse.setAttribute('value','Password ไม่ตรงกัน')
+            actionInput(elementInput,elementHeader,elementResponse)
+            return 1
+        } else{
+            // value isn't emptry
+            elementResponse.setAttribute('value',"Password ใช้งานได้ ")
+            originalInput(elementInput,elementHeader,elementResponse)
+        }
+        
     } 
 
     // email
-    if(!checkValue(elementInput.value) && (elementInput.id == "email")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "email")){
         // value emptry
         elementResponse.setAttribute('value','กรุณากรอก Email')
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "email")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "email")){
         // check pattern data (email)
         if(!elementInput.value.match(elementInput.pattern)){
             // format invalid
             elementResponse.setAttribute('value','Pattern ของ Email ไม่ถูกต้อง!')
             actionInput(elementInput,elementHeader,elementResponse)
-            checkNumberEmpty += 1
+            return 1
         }else{
-            // value isn't emptry
-            originalInput(elementInput,elementHeader,elementResponse)
+            // check duplicate email.
+            let message = ""
+            dataEmail = {
+                email: elementInput.value
+            }
+            try{
+                const response = await axios.post(
+                    'http://localhost:8000/user/resgister-check-field',
+                    dataEmail
+                )
+                message = response.data.message
+            } catch(error){
+                console.log(error)
+            }
+
+            if(message!="check field success"){
+                elementResponse.setAttribute('value',message)
+                actionInput(elementInput,elementHeader,elementResponse)
+                return 1
+            } else{
+                // value isn't emptry
+                elementResponse.setAttribute('value',"Password ถูกต้อง")
+                originalInput(elementInput,elementHeader,elementResponse)
+            }
         }
     } 
 
     // firstname
-    if(!checkValue(elementInput.value) && (elementInput.id == "firstname")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "firstname")){
         // value emptry
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "firstname")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "firstname")){
         // value isn't emptry
+        elementResponse.setAttribute('value',"กรอกชื่อเรียบร้อย")
         originalInput(elementInput,elementHeader,elementResponse)
     } 
 
     // lastname
-    if(!checkValue(elementInput.value) && (elementInput.id == "lastname")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "lastname")){
         // value emptry
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "lastname")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "lastname")){
         // value isn't emptry
+        elementResponse.setAttribute('value',"กรอกนามสกุลเรียบร้อย")
         originalInput(elementInput,elementHeader,elementResponse)
     } 
 
     // gender
-    if(!checkValue(elementInput.value) && (elementInput.id == "gender")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "gender")){
         // value emptry
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "gender")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "gender")){
         // value isn't emptry
+        elementResponse.setAttribute('value',"ระบุเพศเรียบร้อย")
         originalInput(elementInput,elementHeader,elementResponse)
     } 
 
     // birthday
-    if(!checkValue(elementInput.value) && (elementInput.id == "birthday")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "birthday")){
         // value emptry
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "birthday")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "birthday")){
         // value isn't emptry
+        elementResponse.setAttribute('value',"กรอกวันเกิดเรียบร้อย")
         originalInput(elementInput,elementHeader,elementResponse)
     } 
 
 
     // numbercard
-    if(!checkValue(elementInput.value) && (elementInput.id == "number-card")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "number-card")){
         // value emptry
         elementResponse.setAttribute('value','กรุณากรอก เลขบัตรประจำตัวประชาชน')
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "number-card")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "number-card")){
         if(!elementInput.value.match(elementInput.pattern)){
             // format invalid
             elementResponse.setAttribute('value','กรุณากรอกหมายเลขให้ครบถ้วน!')
             actionInput(elementInput,elementHeader,elementResponse)
-            checkNumberEmpty += 1
+            return 1
         }else{
-            // value isn't emptry
-            originalInput(elementInput,elementHeader,elementResponse)
+            // check duplicate numbercard.
+            let message = ""
+            dataNumbercard = {
+                numbercard: elementInput.value
+            }
+            try{
+                const response = await axios.post(
+                    'http://localhost:8000/user/resgister-check-field',
+                    dataNumbercard
+                )
+                message = response.data.message
+            } catch(error){
+                console.log(error)
+            }
+
+            if(message!="check field success"){
+                elementResponse.setAttribute('value',message)
+                actionInput(elementInput,elementHeader,elementResponse)
+                return 1
+            } else{
+                // value isn't emptry
+                elementResponse.setAttribute('value',"บัตรประจำตัวประชาชนใช้งานได้")
+                originalInput(elementInput,elementHeader,elementResponse)
+            }
         }
     } 
 
     // phone
-    if(!checkValue(elementInput.value) && (elementInput.id == "phone")){
+    if(!checkValue(elementInput.value) && (elementInput.id === "phone")){
         // value emptry
         elementResponse.setAttribute('value','กรุณากรอก เบอร์โทร')
         actionInput(elementInput,elementHeader,elementResponse)
-        checkNumberEmpty += 1
-    } else if(checkValue(elementInput.value) && (elementInput.id == "phone")){
+        return 1
+    } else if(checkValue(elementInput.value) && (elementInput.id === "phone")){
         if(!elementInput.value.match(elementInput.pattern)){
             // format invalid
             elementResponse.setAttribute('value','กรุณากรอกเบอร์โทรให้ครบถ้วน!')
             actionInput(elementInput,elementHeader,elementResponse)
-            checkNumberEmpty += 1
+            return 1
         }else{
-            // value isn't emptry
-            originalInput(elementInput,elementHeader,elementResponse)
+           // check duplicate phone.
+           let message = ""
+           dataNumbercard = {
+            phone: elementInput.value
+           }
+           try{
+               const response = await axios.post(
+                   'http://localhost:8000/user/resgister-check-field',
+                   dataNumbercard
+               )
+               message = response.data.message
+           } catch(error){
+               console.log(error)
+           }
+
+           if(message!="check field success"){
+               elementResponse.setAttribute('value',message)
+               actionInput(elementInput,elementHeader,elementResponse)
+               return 1
+           } else{
+               // value isn't emptry
+               elementResponse.setAttribute('value',"เบอร์โทรใช้งานได้")
+               originalInput(elementInput,elementHeader,elementResponse)
+           }
         }
     } 
     
-    return checkNumberEmpty
+    return 0
 }
 
 // original input
 const originalInput = (elementInput,elementHeader,elementResponse) => {
-    elementInput.style.border = "1px solid rgb(177, 177, 177)"
-    elementResponse.innerHTML = ""
-    elementHeader.style.marginBottom = "17.5px"
+    elementInput.style.border = "1px solid green"
+    elementResponse.innerHTML = 
+        "<div style='display: flex; mix-blend-mode: multiply; justify-content: center; align-items: center;'>" +
+        elementResponse.getAttribute("value") + "<img src='../img/correct.png' style='margin-left: 3px;width: 11px;height: 11px'>" + 
+        "</div>"
+    elementResponse.style.color = "green"
+    elementHeader.style.marginBottom = "0px"
 }
 
 // wrong input
@@ -194,19 +302,19 @@ const getRegisterData = async() => {
 
     // check all data valid in form. (if it have number more or equal 1 data invalid)
     let checkError = 0
-    checkError += checkElement(usernameID,'text-username','response-username')
-    checkError += checkElement(firstpasswordID,'text-firstpassword','response-firstpassword')
-    checkError += checkElement(secondpasswordID,'text-secondpassword','response-secondpassword')
-    checkError += checkElement(emailID,'text-email','response-email')
-    checkError += checkElement(firstnameID,'text-firstname','response-firstname')
-    checkError += checkElement(lastnameID,'text-lastname','response-lastname')
-    checkError += checkElement(genderID,'text-gender','response-gender')
-    checkError += checkElement(birthdayID,'text-birthday','response-birthday')
-    checkError += checkElement(numbercardID,'text-number-card','response-number-card')
-    checkError += checkElement(phoneID,'text-phone','response-phone')
+    checkError += await checkElement(usernameID,'text-username','response-username')
+    checkError += await checkElement(firstpasswordID,'text-firstpassword','response-firstpassword')
+    checkError += await checkElement(secondpasswordID,'text-secondpassword','response-secondpassword')
+    checkError += await checkElement(emailID,'text-email','response-email')
+    checkError += await checkElement(firstnameID,'text-firstname','response-firstname')
+    checkError += await checkElement(lastnameID,'text-lastname','response-lastname')
+    checkError += await checkElement(genderID,'text-gender','response-gender')
+    checkError += await checkElement(birthdayID,'text-birthday','response-birthday')
+    checkError += await checkElement(numbercardID,'text-number-card','response-number-card')
+    checkError += await checkElement(phoneID,'text-phone','response-phone')
 
     // data register is ready send to database.
-    if(checkError==0){
+    if(checkError===0){
         // Collect data
         let dataRegister = {
             username: usernameDOM.value,
@@ -226,8 +334,14 @@ const getRegisterData = async() => {
                 'http://localhost:8000/user/register',
                 dataRegister
             )
-            console.log("ลงทะเบียนสำเร็จ")
-
+            let elementShowSuccessRegister = document.getElementById("box-register")
+            elementShowSuccessRegister.innerHTML = 
+            "<div>" +
+                "<div style='mix-blend-mode: multiply;'>" +
+                "<div style='display: flex; justify-content: center; align-items: center;'>" + "<img src='../img/correct.png' style='width: 200px;height: 200px; margin-bottom: 30px;'>"+ "</div>" + 
+                "<div style='text-align: center; font-size: 54px; font-weight: bold'>" + "ลงทะเบียนสำเร็จ" + "</div>" +
+                "</div>"
+            "</div>"
         } catch(error){
             console.log(error)
         }

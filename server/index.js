@@ -71,15 +71,68 @@ app.post("/user/login", async (req,res) => {
 
 })
 
+// Post check data duplicate.
+app.post('/user/resgister-check-field', async (req,res) =>{
+
+    const dataUserRegister = req.body
+
+    // Check username, email, number-card and phone
+    let username = dataUserRegister.username
+    let email = dataUserRegister.email
+    let numbercard = dataUserRegister.numbercard
+    let phone = dataUserRegister.phone
+
+    // Check username or email
+    let queryUser = 'SELECT username, email, numbercard, phone FROM user'
+    let getUser = await conn.query(queryUser)
+    let users = getUser[0]
+
+    // Check username duplicate.
+    if(users.find(user => user.username === username) && username != ""){
+        return res.json({
+            message: "Username ถูกใช้งานไปแล้ว!"
+        })
+    }
+
+    // Check email duplicate.
+    if(users.find(user => user.email === email)){
+        return res.json({
+            message: "Email ถูกใช้งานไปแล้ว!"
+        })
+    }
+
+    // Check numbercard duplicate.
+    if(users.find(user => user.numbercard === numbercard)){
+        return res.json({
+            message: "เลขบัตรประจำตัวประชาชนถูกใช้งานไปแล้ว!"
+        })
+    }
+
+    // Check numbercard duplicate.
+    if(users.find(user => user.phone === phone)){
+        return res.json({
+            message: "เบอร์โทรถูกใช้งานไปแล้ว!"
+        })
+    }
+
+    res.json({
+        message: "check field success"
+    })
+})
+
 // Post data register user.
 app.post('/user/register', async (req,res) =>{
+
     const dataUserRegister = req.body
+    
+    // it ready to insert data.
     const results = conn.query("INSERT INTO user SET ?", dataUserRegister)
+
     res.json({
-        message: "insert complete",
+        message: "insert data success",
         result: results[0]
     })
-}) 
+})
 
 app.listen(8000, async () => {
     await connectMySQL()

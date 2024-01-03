@@ -19,7 +19,7 @@
 
     <div class="section">
         <div class="contrain">
-            <div class="box-register">
+            <div id="box-register">
                 <div class="register">
                     <div class="header-register">
                         <label>Register</label>
@@ -44,18 +44,18 @@
                                 <div id="response-firstpassword" value="กรุณากรอก Password"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-1" name="password-1" placeholder="At least 8 characters long" oninput="checkElement(this.id,'text-firstpassword','response-firstpassword')">
+                                <input type="password" id="password-1" name="password-1" placeholder="least 8 characters" oninput="checkElement(this.id,'text-firstpassword','response-firstpassword')">
                             </div>
                         </div>
                         <div class="input-data">
                             <div>
                                 <div id="text-secondpassword">
-                                    <label>Password</label>
+                                    <label>Confirm Password</label>
                                 </div>
                                 <div id="response-secondpassword" value="กรุณากรอก Password"></div>
                             </div>
                             <div>
-                                <input type="password" id="password-2" name="password-2" placeholder="At least 8 characters long" oninput="checkElement(this.id,'text-secondpassword','response-secondpassword')">
+                                <input type="password" id="password-2" name="password-2" placeholder="least 8 characters" onchange="checkElement(this.id,'text-secondpassword','response-secondpassword')">
                             </div>
                         </div>
                         <div class="input-data">
