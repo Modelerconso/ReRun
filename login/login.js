@@ -40,6 +40,7 @@ const loginData = async () => {
             inputUsername.style.border = "1px solid rgb(177, 177, 177)"
             inputPassword.style.border = "1px solid rgb(177, 177, 177)"
             console.log("เข้าสู่ระบบได้สำเร็จ")
+            window.location.href = '../home/home.html'
         }
     } catch(error){
         console.log(error)
