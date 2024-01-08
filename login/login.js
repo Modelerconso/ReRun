@@ -7,7 +7,7 @@ const loginData = async () => {
         username: usernameDOM.value,
         password: passwordDOM.value
     }
-
+    
     // Send data login to server
     try{
         const response = await axios.post(

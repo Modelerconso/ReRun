@@ -170,3 +170,16 @@ button {
     color: white;
 }
 
+@media screen and (max-width: 430px) {
+
+    .box-login {
+        display: flex;
+        width: 85%;
+        height: 60%;
+    }
+
+    .img-login {
+        display: none;
+    }
+    
+}   
