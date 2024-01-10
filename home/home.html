@@ -8,12 +8,15 @@
 </head>
 <body>
     <!-- Header page -->
-    <div class="header">
+    <div class="header" id="header">
         <div class="contrain">
-            <div class="menu">
-                <a href="../home/home.html">หน้าหลัก</a>
+            <div class="menu" id="mymenu">
+                <a href="../home/home.html" class="active" >หน้าหลัก</a>
                 <a href="../history/history.html">ตรวจสอบสถานะ</a>
                 <a href="../profile/profile.html">โปรไฟล์</a>
+                <a href="javascript:void(0);" class="icon" onclick="menuResponsive()">
+                    <img src="../img/menu.png" class="icon-menu">
+                </a>
             </div>
         </div>
     </div>
@@ -32,45 +35,14 @@
                 <div class="search-events">
                     <div class="search-box">
                         <div class="text">
-                            <label>ชื่อรายการ</label>
+                            <label>ค้นหารายการ</label>
                         </div>
                         <div class="box">
                             <input type="search" id="event-list" name="event-list">
                         </div>
                     </div>
-                    <div class="search-box">
-                        <div class="text">
-                            <label>ประเภท</label>
-                        </div>
-                        <div class="box">
-                            <input type="search" id="type-list" name="type-list">
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <div class="text">
-                            <label>จังหวัด</label>
-                        </div>
-                        <div class="box">
-                            <input type="search" id="changwat-list" name="changwat-list">
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <div class="text">
-                            <label>อำเภอ</label>
-                        </div>
-                        <div class="box">
-                            <input type="search" id="amphoe-list" name="amphoe-list">
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <div class="text">
-                            <label>ตำบล</label>
-                        </div>
-                        <div class="box">
-                            <input type="search" id="tambon-list" name="tambon-list">
-                        </div>
-                    </div>
                 </div>
+                <!-- content -->
                 <div class="content">
                     <div class="box-content">
                         <div class="image">
@@ -224,5 +196,6 @@
             </div>
         </div>
     </div>
+    <script src="home.js"></script>
 </body>
 </html>

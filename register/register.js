@@ -339,7 +339,6 @@ const getRegisterData = async() => {
                 "<div style='text-align: center; font-size: 54px; font-weight: bold'>" + "ลงทะเบียนสำเร็จ" + "</div>" +
                 "</div>"
             "</div>"
-            window.location.href = '../login/login.html'
         } catch(error){
             console.log(error)
         }
