@@ -4,6 +4,7 @@ const menuResponsive = () => {
     if(menuDOM.className === "menu"){
         menuDOM.className += " responsive"
         headerDOM.className += " responsive"
+        iconDOM.className += " responsive"
     }else {
         menuDOM.className = "menu"
         headerDOM.className = "header"

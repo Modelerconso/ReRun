@@ -352,6 +352,10 @@ body {
         display: none;
     }
 
+    .menu a:hover {
+        background-color: #5ED8FF;
+    }
+
     .menu .icon {
         display: flex;
         float: left;
@@ -385,9 +389,15 @@ body {
     }
 
     .menu.responsive .icon {
+        background-color: #1cc1fd;
         position: absolute;
         right: 0;
         top: 0;
+    }
+
+    .menu.responsive .active{
+        background-color: #1cc1fd;
+        color: white;
     }
 
     .menu.responsive a {
@@ -399,11 +409,7 @@ body {
 
     .menu.responsive a:hover {
         background-color: #1cc1fd;
-        color: black;
+        color: rgb(255, 255, 255);
     }
-    
-    .menu.responsive .active{
-        background-color: #1cc1fd;
-        color: #ffffff;
-    }
+
 }
