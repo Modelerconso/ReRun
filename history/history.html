@@ -8,12 +8,15 @@
 </head>
 <body>
     <!-- Header page -->
-    <div class="header">
+    <div class="header" id="header">
         <div class="contrain">
-            <div class="menu">
+            <div class="menu" id="mymenu">
                 <a href="../home/home.html">หน้าหลัก</a>
-                <a href="../history/history.html">ตรวจสอบสถานะ</a>
+                <a href="../history/history.html" class="active">ตรวจสอบสถานะ</a>
                 <a href="../profile/profile.html">โปรไฟล์</a>
+                <a class="icon" id="icon" onclick="menuResponsive()">
+                    <img src="../img/menu.png" class="icon-menu">
+                </a>
             </div>
         </div>
     </div>
@@ -142,5 +145,6 @@
             </div>
         </div>
     </div>
+    <script src="history.js"></script>
 </body>
 </html>
