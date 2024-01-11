@@ -31,7 +31,7 @@ body {
     display: flex;
 }
 
-.menu a:not(.icon){
+.menu a:not(.icon,.active){
     text-decoration: none;
     padding: 15px;
     list-style-type: none;
@@ -57,7 +57,12 @@ body {
 
 .menu .active{
     background-color: #1cc1fd;
+    text-decoration: none;
+    padding: 15px;
+    list-style-type: none;
     color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* Section */
@@ -378,7 +383,7 @@ body {
     }
 
     .menu.responsive a:hover {
-        background-color: #1cc1fd;
-        color: rgb(255, 255, 255);
+        background-color: #ffffff;
+        color: black;
     }
 }
