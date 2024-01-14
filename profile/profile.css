@@ -382,6 +382,11 @@ button {
         justify-content: center;
         align-items: center;
     }
+
+    /* footer box comment */
+    .box-comment {
+        width: auto;
+    }
 }
 
 /* Responsive moblie */

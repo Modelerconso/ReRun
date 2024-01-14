@@ -8,12 +8,15 @@
 </head>
 <body>
     <!-- Header page -->
-    <div class="header">
+    <div class="header" id="header">
         <div class="contrain">
-            <div class="menu">
+            <div class="menu" id="mymenu">
                 <a href="../home/home.html">หน้าหลัก</a>
-                <a href="../history/history.html">ตรวจสอบสถานะ</a>
+                <a href="../history/history.html" class="active">ตรวจสอบสถานะ</a>
                 <a href="../profile/profile.html">โปรไฟล์</a>
+                <a class="icon" id="icon" onclick="menuResponsive()">
+                    <img src="../img/menu.png" class="icon-menu">
+                </a>
             </div>
         </div>
     </div>
@@ -29,6 +32,9 @@
                 <div class="body-ranking">
                     <div class="rank-2">
                         <div class="circle-ranking-2"></div>
+                        <div class="number-ranking-responsive">
+                            <label>2</label>
+                        </div>
                         <div class="text">
                             <label>ABC DEF</label>
                          </div>
@@ -38,6 +44,9 @@
                     </div>
                     <div class="rank-1">
                         <div class="circle-ranking-1"></div>
+                        <div class="number-ranking-responsive">
+                            <label>1</label>
+                        </div>
                         <div class="text">
                             <label>GHI JKL</label>
                         </div>
@@ -47,6 +56,9 @@
                     </div>
                     <div class="rank-3">
                         <div class="circle-ranking-3"></div>
+                        <div class="number-ranking-responsive">
+                            <label>3</label>
+                        </div>
                         <div class="text">
                             <label>MNO PQR</label>
                         </div>
