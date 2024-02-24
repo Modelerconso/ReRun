@@ -2,11 +2,18 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mysql = require('mysql2/promise')
 const cors = require('cors')
+const bcrypt = require('bcrypt')
+const jwt = require("jsonwebtoken")
+const path = require('path');
+
 const app = express()
 
 app.use(bodyParser.json())
 app.use(cors())
 
+app.use(express.static('../public'))
+
+const secret = "mysecret"
 let conn = null
 
 // function connect database in phpmyadmin
@@ -15,10 +22,19 @@ const connectMySQL = async() => {
         host: 'localhost',
         user: 'root',
         password: 'root',
-        database: 'rerun',
-        port: 8889
+        database: 'rerun'
     })    
 }
+
+// login
+app.get("/", async(req,res) => {
+    res.sendFile(path.join(__dirname, '../public/login/login.html'));
+})
+
+// register
+app.get("/register.html", async(req,res) => {
+    res.sendFile(path.join(__dirname, '../public/register/register.html'));
+})
 
 // Manager data register user.
 // Check login in database.
@@ -31,6 +47,7 @@ app.post("/user/login", async (req,res) => {
         // Check username or email
         let queryUser = 'SELECT * FROM user WHERE username = ? or email = ?'
         let getUser = await conn.query(queryUser,[usernameLogin,usernameLogin])
+        
         // Select value and index 0
         let dataUser = getUser[0][0]
         if(!dataUser){
@@ -42,8 +59,11 @@ app.post("/user/login", async (req,res) => {
             return res.send(usernameInvalid)
         } 
         
+        // Compare password login with password in database by bcrypt.
+        const passwordMatch = await bcrypt.compare(passwordLogin, dataUser.password)
+        
         //if password is not correct.
-        if(dataUser.firstpassword != passwordLogin){
+        if(!passwordMatch){
             passwordInvalid = {
                 element: "password",
                 valid: false,
@@ -52,16 +72,20 @@ app.post("/user/login", async (req,res) => {
             return res.send(passwordInvalid)
         }
 
-        // Output user when username or email and password correct.
+        // JWT 
+        const token = jwt.sign(
+            {
+                username: dataUser.username
+            },
+                secret,
+            {
+                expiresIn: "1h"
+            }
+        )
+
         res.json({
-            username: dataUser.username,
-            firstname: dataUser.firstname,
-            lastname: dataUser.lastname,
-            email: dataUser.email,
-            age: dataUser.age,
-            birthday: dataUser.birthday,
-            phone: dataUser.phone,
-            valid: true
+            message: "login success",
+            token
         })
 
     } catch(error) {
@@ -71,8 +95,31 @@ app.post("/user/login", async (req,res) => {
 
 })
 
-// Post check data duplicate.
-app.post('/user/resgister-check-field', async (req,res) =>{
+// Get data event of client. (history page)
+app.post('/user/history', async(req,res) => {
+
+    try{
+        const authToken = req.header("authorization")
+
+        // verify
+        // write code ..
+
+        const queryGetDataEventClient = "Select * FROM form"
+        let [results] = await conn.query(queryGetDataEventClient)
+
+        res.json({
+            results
+        })
+
+    } catch(error){
+        console.error('Error fetching history events:', error.message)
+        res.status(500).json({error: 'Error fetching history events'})
+    }
+
+})
+
+// Get check data duplicate.
+app.get('/user/resgister-check-field', async (req,res) =>{
 
     const dataUserRegister = req.body
 
@@ -123,18 +170,47 @@ app.post('/user/resgister-check-field', async (req,res) =>{
 // Post data register user.
 app.post('/user/register', async (req,res) =>{
 
-    const dataUserRegister = req.body
-    
-    // it ready to insert data.
-    const results = conn.query("INSERT INTO user SET ?", dataUserRegister)
+    try{
+        const dataUserRegister = req.body
+        
+        // Use bcrypt convert password.
+        dataUserRegister.password = await bcrypt.hash(dataUserRegister.password, 10)
+        
+        // it ready to insert data.
+        const results = conn.query("INSERT INTO user SET ?", dataUserRegister)
 
-    res.json({
-        message: "insert data success",
-        result: results[0]
-    })
+        res.json({
+            message: "insert data success.",
+            result: results[0]
+        })
+    } catch(error){
+        console.error('Insert data register error:', error.message)
+        res.status(500).json({error: 'Insert data register error'})
+    }
+    
 })
 
-app.listen(8000, async () => {
+// Post data register event.
+app.post('/history/register-event'), async (req,res) =>{
+    
+    try{
+        let dataRegisterEvent = req.body
+
+        // it ready to insert data.
+        const results = conn.query("INSERT INTO form SET ?", dataRegisterEvent)
+
+        res.json({
+            message: "insert data register event success.",
+            result: results[0]
+        })
+    } catch(error){
+        console.error('Insert data register event error:', error.message)
+        res.status(500).json({error: 'Insert data register event error'})
+    }
+    
+}
+
+app.listen(8010, async () => {
     await connectMySQL()
-    console.log("Server started on port 8000")
+    console.log("Server started on port 8010")
 })
